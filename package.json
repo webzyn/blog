@@ -1,0 +1,14 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "我的个人博客",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "vuepress": "^1.9.7"
+  },
+  "scripts": {
+    "dev": "vuepress dev docs --temp .temp",
+    "docs:build": "vuepress build docs"
+  }
+}
