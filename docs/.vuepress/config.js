@@ -17,6 +17,10 @@ module.exports = {
         link: "/vue/",
       },
       {
+        text: "echarts",
+        link: "/echarts/",
+      },
+      {
         text: "uniapp",
         link: "/uniapp/",
       },
@@ -33,11 +37,6 @@ module.exports = {
     // sidebar: "auto",
     sidebar: {
       "/markDown/": "auto",
-      // "/javaScript/": [
-      //   ["", "Bolb"],
-      //   ["MIME", "MIME类型"],
-      //   ["fuzzySearch", "树形结构模糊搜索"],
-      // ],
       "/javaScript/": [
         { title: "Bolb", path: "/javaScript/blob" },
         { title: "MIME类型", path: "/javaScript/MIME" },
@@ -57,6 +56,24 @@ module.exports = {
         ["directive", "自定义指令directive"],
         ["v-has", "v-has和$has(权限按钮判断)"],
         ["use", "Vue.use和Vue.prototype.$xx"],
+      ],
+      "/echarts/": [
+        { title: "echarts使用", path: "/echarts/" },
+        { title: "option配置项", path: "/echarts/option" },
+        {
+          title: "option.series",
+          collapsable: false, //是否能收起来
+          children: [
+            {
+              title: "bar柱状图",
+              path: "/echarts/series/bar",
+            },
+            {
+              title: "pie饼图",
+              path: "/echarts/series/pie",
+            },
+          ],
+        },
       ],
     },
   },
