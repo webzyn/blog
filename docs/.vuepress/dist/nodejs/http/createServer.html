@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>创建 web 服务器 | 学习笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.d6ad21ed.css" as="style"><link rel="preload" href="/assets/js/app.a06d3878.js" as="script"><link rel="preload" href="/assets/js/2.e7771c76.js" as="script"><link rel="preload" href="/assets/js/26.6f94a40f.js" as="script"><link rel="prefetch" href="/assets/js/10.5b1c5780.js"><link rel="prefetch" href="/assets/js/11.a3eef9be.js"><link rel="prefetch" href="/assets/js/12.7d39acc0.js"><link rel="prefetch" href="/assets/js/13.4a18f314.js"><link rel="prefetch" href="/assets/js/14.5089c927.js"><link rel="prefetch" href="/assets/js/15.d203a0cb.js"><link rel="prefetch" href="/assets/js/16.d94007d0.js"><link rel="prefetch" href="/assets/js/17.5cad7eeb.js"><link rel="prefetch" href="/assets/js/18.9ba17d21.js"><link rel="prefetch" href="/assets/js/19.3330fe48.js"><link rel="prefetch" href="/assets/js/20.15bb509d.js"><link rel="prefetch" href="/assets/js/21.e76be260.js"><link rel="prefetch" href="/assets/js/22.b797af6a.js"><link rel="prefetch" href="/assets/js/23.3508605f.js"><link rel="prefetch" href="/assets/js/24.44e9b6a6.js"><link rel="prefetch" href="/assets/js/25.922f5e18.js"><link rel="prefetch" href="/assets/js/27.f3cda327.js"><link rel="prefetch" href="/assets/js/28.e7efc502.js"><link rel="prefetch" href="/assets/js/29.4e9c3b51.js"><link rel="prefetch" href="/assets/js/3.f068c6c4.js"><link rel="prefetch" href="/assets/js/30.db5899c7.js"><link rel="prefetch" href="/assets/js/31.27113bf0.js"><link rel="prefetch" href="/assets/js/32.d0fea1a8.js"><link rel="prefetch" href="/assets/js/33.bcbc9300.js"><link rel="prefetch" href="/assets/js/4.5f5152f2.js"><link rel="prefetch" href="/assets/js/5.60da61b1.js"><link rel="prefetch" href="/assets/js/6.510d100b.js"><link rel="prefetch" href="/assets/js/7.708b51f6.js"><link rel="prefetch" href="/assets/js/8.8d2c63f3.js"><link rel="prefetch" href="/assets/js/9.dde97266.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d6ad21ed.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">学习笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/javaScript/" class="nav-link">
+  javaScript
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/echarts/" class="nav-link">
+  echarts
+</a></div><div class="nav-item"><a href="/uniapp/" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/nodejs/" class="nav-link router-link-active">
+  nodejs
+</a></div><div class="nav-item"><a href="/markDown/" class="nav-link">
+  markDown语法
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/javaScript/" class="nav-link">
+  javaScript
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/echarts/" class="nav-link">
+  echarts
+</a></div><div class="nav-item"><a href="/uniapp/" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/nodejs/" class="nav-link router-link-active">
+  nodejs
+</a></div><div class="nav-item"><a href="/markDown/" class="nav-link">
+  markDown语法
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/nodejs/fs.html" class="sidebar-link">fs模块</a></li><li><a href="/nodejs/__dirname.html" class="sidebar-link">__dirname文件所处的目录</a></li><li><a href="/nodejs/path.html" class="sidebar-link">path模块</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>http模块</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/nodejs/http/server.html" class="sidebar-link">服务器相关概念</a></li><li><a href="/nodejs/http/createServer.html" aria-current="page" class="active sidebar-link">创建web服务器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/nodejs/http/createServer.html#req-请求对象" class="sidebar-link">req 请求对象</a></li><li class="sidebar-sub-header"><a href="/nodejs/http/createServer.html#res-响应对象" class="sidebar-link">res 响应对象</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="创建-web-服务器"><a href="#创建-web-服务器" class="header-anchor">#</a> 创建 web 服务器</h1> <ul><li>导入 http 模块</li> <li>创建 web 服务器实例</li> <li>为服务器实例绑定 request 事件，监听客户端的请求</li> <li>启动服务器</li></ul> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 步骤1 导入http模块</span>
+<span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;http&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 步骤2 调用 http.createServer() 方法 , 创建 web 服务器实例</span>
+<span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 步骤3 使用服务器实例的 .on() 方法,为服务器绑定一个request事件</span>
+server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;request&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 只要有客户端请求这个服务器,就会触发request事件,从而调用这个事件处理函数</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Someone visit our web server.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 步骤4 调用服务器实例的 .listen(端口号,cb回调) 方法,即可启动 web 服务器</span>
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">9090</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;server running at http://127.0.0.1:9090&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h2 id="req-请求对象"><a href="#req-请求对象" class="header-anchor">#</a> req 请求对象</h2> <p>只要服务器接收到了客户端的请求，就会调用通过 server.on()为服务器绑定的 request 事件处理函数。
+如果想在事件处理函数中，<code>访问与客户端相关的数据或属性</code>，可以使用如下的方式:</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;request&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// req是请求对象，它包含了与客户端相关的数据和属性，例如</span>
+  <span class="token comment">// req.url 是客户端请求的 URL地址</span>
+  <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url<span class="token punctuation">;</span>
+  <span class="token comment">// req.method 是客户端的 method请求类型</span>
+  <span class="token keyword">const</span> method <span class="token operator">=</span> req<span class="token punctuation">.</span>method<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Your request url is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">，and request method is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>method<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="res-响应对象"><a href="#res-响应对象" class="header-anchor">#</a> res 响应对象</h2> <p>在服务器的 request 事件处理函数中，<code>访问与服务器相关的数据或属性</code></p> <h3 id="res-end-向客户端发送指定的内容-并结束这次请求的处理过程"><a href="#res-end-向客户端发送指定的内容-并结束这次请求的处理过程" class="header-anchor">#</a> res.end() 向客户端发送指定的内容，并结束这次请求的处理过程</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;request&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// res 是响应对象，它包含了与服务器相关的数据和属性，例如:</span>
+  <span class="token comment">// 要发送到客户端的字符串</span>
+  <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Your request url is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>req<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">，and request method is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>req<span class="token punctuation">.</span>method<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+  <span class="token comment">// res.end()方法的作用: 向客户端发送指定的内容，并结束这次请求的处理过程</span>
+  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="res-setheader-设置响应头"><a href="#res-setheader-设置响应头" class="header-anchor">#</a> res.setHeader 设置响应头</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code>server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;request&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">//发送的内容包含中文</span>
+  <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">您请求的url 地址是</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>req<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">，请求的method类型是 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>req<span class="token punctuation">.</span>method<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token comment">//为了防止中文显示乱码的问题，需要设置响应头Content-Type 的值为 text/html; charset=utf-8</span>
+  res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">&quot;Content-Type&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;text/html; charset=utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">//把包含中文的内容，响应给客户端</span>
+  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/nodejs/http/server.html" class="prev">
+        服务器相关概念
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a06d3878.js" defer></script><script src="/assets/js/2.e7771c76.js" defer></script><script src="/assets/js/26.6f94a40f.js" defer></script>
+  </body>
+</html>

@@ -25,6 +25,10 @@ module.exports = {
         link: "/uniapp/",
       },
       {
+        text: "nodejs",
+        link: "/nodejs/",
+      },
+      {
         text: "markDown语法",
         link: "/markDown/",
       },
@@ -71,6 +75,41 @@ module.exports = {
             {
               title: "pie饼图",
               path: "/echarts/series/pie",
+            },
+            {
+              title: "line折线图",
+              path: "/echarts/series/line",
+            },
+            {
+              title: "scatter/dot散点图",
+              path: "/echarts/series/dot",
+            },
+            {
+              title: "effectScatter涟漪特效散点图",
+              path: "/echarts/series/effectScatter",
+            },
+            {
+              title: "tree树图",
+              path: "/echarts/series/tree",
+            },
+          ],
+        },
+      ],
+      "/nodejs/": [
+        { title: "fs模块", path: "/nodejs/fs" },
+        { title: "__dirname文件所处的目录", path: "/nodejs/__dirname" },
+        { title: "path模块", path: "/nodejs/path" },
+        {
+          title: "http模块",
+          collapsable: false, //是否能收起来,
+          children: [
+            {
+              title: "服务器相关概念",
+              path: "/nodejs/http/server",
+            },
+            {
+              title: "创建web服务器",
+              path: "/nodejs/http/createServer",
             },
           ],
         },

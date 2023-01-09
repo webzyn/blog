@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>eharts 基本使用 | 学习笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.d6ad21ed.css" as="style"><link rel="preload" href="/assets/js/app.a06d3878.js" as="script"><link rel="preload" href="/assets/js/2.e7771c76.js" as="script"><link rel="preload" href="/assets/js/8.8d2c63f3.js" as="script"><link rel="prefetch" href="/assets/js/10.5b1c5780.js"><link rel="prefetch" href="/assets/js/11.a3eef9be.js"><link rel="prefetch" href="/assets/js/12.7d39acc0.js"><link rel="prefetch" href="/assets/js/13.4a18f314.js"><link rel="prefetch" href="/assets/js/14.5089c927.js"><link rel="prefetch" href="/assets/js/15.d203a0cb.js"><link rel="prefetch" href="/assets/js/16.d94007d0.js"><link rel="prefetch" href="/assets/js/17.5cad7eeb.js"><link rel="prefetch" href="/assets/js/18.9ba17d21.js"><link rel="prefetch" href="/assets/js/19.3330fe48.js"><link rel="prefetch" href="/assets/js/20.15bb509d.js"><link rel="prefetch" href="/assets/js/21.e76be260.js"><link rel="prefetch" href="/assets/js/22.b797af6a.js"><link rel="prefetch" href="/assets/js/23.3508605f.js"><link rel="prefetch" href="/assets/js/24.44e9b6a6.js"><link rel="prefetch" href="/assets/js/25.922f5e18.js"><link rel="prefetch" href="/assets/js/26.6f94a40f.js"><link rel="prefetch" href="/assets/js/27.f3cda327.js"><link rel="prefetch" href="/assets/js/28.e7efc502.js"><link rel="prefetch" href="/assets/js/29.4e9c3b51.js"><link rel="prefetch" href="/assets/js/3.f068c6c4.js"><link rel="prefetch" href="/assets/js/30.db5899c7.js"><link rel="prefetch" href="/assets/js/31.27113bf0.js"><link rel="prefetch" href="/assets/js/32.d0fea1a8.js"><link rel="prefetch" href="/assets/js/33.bcbc9300.js"><link rel="prefetch" href="/assets/js/4.5f5152f2.js"><link rel="prefetch" href="/assets/js/5.60da61b1.js"><link rel="prefetch" href="/assets/js/6.510d100b.js"><link rel="prefetch" href="/assets/js/7.708b51f6.js"><link rel="prefetch" href="/assets/js/9.dde97266.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d6ad21ed.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">学习笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/javaScript/" class="nav-link">
+  javaScript
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/echarts/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  echarts
+</a></div><div class="nav-item"><a href="/uniapp/" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/nodejs/" class="nav-link">
+  nodejs
+</a></div><div class="nav-item"><a href="/markDown/" class="nav-link">
+  markDown语法
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/javaScript/" class="nav-link">
+  javaScript
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/echarts/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  echarts
+</a></div><div class="nav-item"><a href="/uniapp/" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/nodejs/" class="nav-link">
+  nodejs
+</a></div><div class="nav-item"><a href="/markDown/" class="nav-link">
+  markDown语法
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/echarts/" aria-current="page" class="active sidebar-link">echarts使用</a></li><li><a href="/echarts/option.html" class="sidebar-link">option配置项</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>option.series</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/echarts/series/bar.html" class="sidebar-link">bar柱状图</a></li><li><a href="/echarts/series/pie.html" class="sidebar-link">pie饼图</a></li><li><a href="/echarts/series/line.html" class="sidebar-link">line折线图</a></li><li><a href="/echarts/series/dot.html" class="sidebar-link">scatter/dot散点图</a></li><li><a href="/echarts/series/effectScatter.html" class="sidebar-link">effectScatter涟漪特效散点图</a></li><li><a href="/echarts/series/tree.html" class="sidebar-link">tree树图</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="eharts-基本使用"><a href="#eharts-基本使用" class="header-anchor">#</a> eharts 基本使用</h1> <p><strong>引入 echarts</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install echarts --save || yarn echarts --save
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><strong>组件中使用</strong></p> <div class="language-vue line-numbers-mode"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>bar<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>bar<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token comment">// 使用echarts</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> echarts <span class="token keyword">from</span> <span class="token string">&quot;echarts&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;bar&quot;</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 初始化</span>
+    <span class="token keyword">var</span> myChart <span class="token operator">=</span> echarts<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>bar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 指定图表的配置项和数据</span>
+    <span class="token keyword">var</span> option <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token comment">// 使用刚指定的配置项和数据显示图表。</span>
+    myChart<span class="token punctuation">.</span><span class="token function">setOption</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//监听图表容器的大小并改变图表大小</span>
+    window<span class="token punctuation">.</span><span class="token function-variable function">onresize</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      myChart<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">.bar</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0px <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 440px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/echarts/option.html">
+        option配置项
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a06d3878.js" defer></script><script src="/assets/js/2.e7771c76.js" defer></script><script src="/assets/js/8.8d2c63f3.js" defer></script>
+  </body>
+</html>
