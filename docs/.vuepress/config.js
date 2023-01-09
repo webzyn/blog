@@ -1,5 +1,5 @@
 module.exports = {
-  base: "/",
+  base: "/blog/",
   title: "学习笔记",
   // description: "菜鸟进阶之路",
   themeConfig: {
