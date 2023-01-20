@@ -1,8 +1,8 @@
 # fs 模块
 
-## 1、读取指定文件中的内容
+### 1、读取指定文件中的内容
 
-### 1. fs.readFile()
+#### 1. fs.readFile()
 
 ```js
 fs.readFile(path[,options],callback)
@@ -28,9 +28,9 @@ fs.readFile("./file/2.txt", "utf-8", function (err, dataStr) {
 });
 ```
 
-## 2、向指定文件写入内容
+### 2、向指定文件写入内容
 
-### 1.fs.readFile()
+#### 1.fs.readFile()
 
 ```js
 fs.writeFile(file, data[, options],callback)
@@ -55,9 +55,9 @@ fs.writeFile("./file/2.txt", "我是写入2.txt的文本", "utf-8", function (er
 });
 ```
 
-## 3、路径动态拼接 \_\_dirname
+### 3、路径动态拼接 \_\_dirname
 
-### \_\_dirname 当前文件所处的目录
+#### \_\_dirname 当前文件所处的目录
 
 ```js
 console.log(__dirname); // E:\blog\nodejs-study

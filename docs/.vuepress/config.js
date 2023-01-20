@@ -27,7 +27,11 @@ module.exports = {
       },
       {
         text: "nodejs",
-        link: "/nodejs/",
+        link: "/nodejs/fs",
+      },
+      {
+        text: "MySQL",
+        link: "/mysql/mysql",
       },
       {
         text: "markDown语法",
@@ -58,13 +62,46 @@ module.exports = {
         },
       ],
       "/vue/": [
-        ["directive", "自定义指令directive"],
-        ["v-has", "v-has和$has(权限按钮判断)"],
-        ["use", "Vue.use和Vue.prototype.$xx"],
+        {
+          title: "组件相关",
+          collapsable: false, //是否能收起来,
+          children: [
+            {
+              title: "slot插槽",
+              path: "/vue/components/slot",
+            },
+            {
+              title: "v-model父子组件间数据双向绑定",
+              path: "/vue/components/vModel",
+            },
+            {
+              title: ".sync父子组件间数据双向绑定",
+              path: "/vue/components/sync",
+            },
+          ],
+        },
+        {
+          title: "其他",
+          collapsable: false, //是否能收起来,
+          children: [
+            {
+              title: "自定义指令directive",
+              path: "/vue/other/directive",
+            },
+            {
+              title: "v-has和$has(权限按钮判断)",
+              path: "/vue/other/v-has",
+            },
+            {
+              title: "Vue.use和Vue.prototype.$xx区别",
+              path: "/vue/other/use",
+            },
+          ],
+        },
       ],
       "/echarts/": [
         { title: "echarts使用", path: "/echarts/" },
-        { title: "option配置项", path: "/echarts/option" },
+        { title: "option配置项", path: "/echarts/option", collapsable: false },
         {
           title: "option.series",
           collapsable: false, //是否能收起来
@@ -97,22 +134,68 @@ module.exports = {
         },
       ],
       "/nodejs/": [
-        { title: "fs模块", path: "/nodejs/fs" },
-        { title: "__dirname文件所处的目录", path: "/nodejs/__dirname" },
-        { title: "path模块", path: "/nodejs/path" },
         {
-          title: "http模块",
+          title: "nodejs基础",
+          children: [
+            { title: "fs模块", path: "/nodejs/fs" },
+            { title: "__dirname文件所处的目录", path: "/nodejs/__dirname" },
+            { title: "path模块", path: "/nodejs/path" },
+            {
+              title: "http模块",
+              collapsable: false, //是否能收起来,
+              children: [
+                {
+                  title: "服务器相关概念",
+                  path: "/nodejs/http/server",
+                },
+                {
+                  title: "创建web服务器",
+                  path: "/nodejs/http/createServer",
+                },
+              ],
+            },
+            { title: "querystring模块", path: "/nodejs/querystring" },
+            {
+              title: "Nodejs模块化",
+              path: "/nodejs/模块化/module",
+            },
+          ],
+        },
+        {
+          title: "express框架",
           collapsable: false, //是否能收起来,
           children: [
             {
-              title: "服务器相关概念",
-              path: "/nodejs/http/server",
+              title: "Express基本使用",
+              path: "/nodejs/express/express",
             },
             {
-              title: "创建web服务器",
-              path: "/nodejs/http/createServer",
+              title: "Express中的路由",
+              path: "/nodejs/express/route",
+            },
+            {
+              title: "中间件",
+              path: "/nodejs/express/Middleware",
+            },
+            {
+              title: "CORS",
+              path: "/nodejs/express/port",
             },
           ],
+        },
+        {
+          title: "mysql模块",
+          path: "/nodejs/mysql",
+        },
+        {
+          title: "身份认证",
+          path: "/nodejs/information",
+        },
+      ],
+      "/mysql/": [
+        {
+          title: "数据库基本概念",
+          path: "/mysql/mysql",
         },
       ],
     },
