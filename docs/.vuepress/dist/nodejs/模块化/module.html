@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>nodejs 模块化 | 学习笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.22a2d9e4.css" as="style"><link rel="preload" href="/blog/assets/js/app.140cd2b2.js" as="script"><link rel="preload" href="/blog/assets/js/2.e7771c76.js" as="script"><link rel="preload" href="/blog/assets/js/37.71398eb5.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.86e4766a.js"><link rel="prefetch" href="/blog/assets/js/11.a3eef9be.js"><link rel="prefetch" href="/blog/assets/js/12.22112b52.js"><link rel="prefetch" href="/blog/assets/js/13.e7977ed5.js"><link rel="prefetch" href="/blog/assets/js/14.5089c927.js"><link rel="prefetch" href="/blog/assets/js/15.db7f5167.js"><link rel="prefetch" href="/blog/assets/js/16.ff728bf7.js"><link rel="prefetch" href="/blog/assets/js/17.a5243dd0.js"><link rel="prefetch" href="/blog/assets/js/18.2cd48698.js"><link rel="prefetch" href="/blog/assets/js/19.48460fef.js"><link rel="prefetch" href="/blog/assets/js/20.9a69379c.js"><link rel="prefetch" href="/blog/assets/js/21.32a13ddc.js"><link rel="prefetch" href="/blog/assets/js/22.5245ed89.js"><link rel="prefetch" href="/blog/assets/js/23.b1395c46.js"><link rel="prefetch" href="/blog/assets/js/24.319477d7.js"><link rel="prefetch" href="/blog/assets/js/25.35c0adcf.js"><link rel="prefetch" href="/blog/assets/js/26.f71261fd.js"><link rel="prefetch" href="/blog/assets/js/27.6f0b8c2c.js"><link rel="prefetch" href="/blog/assets/js/28.89655b47.js"><link rel="prefetch" href="/blog/assets/js/29.2afaf13e.js"><link rel="prefetch" href="/blog/assets/js/3.13e25464.js"><link rel="prefetch" href="/blog/assets/js/30.22a02252.js"><link rel="prefetch" href="/blog/assets/js/31.9fb15b17.js"><link rel="prefetch" href="/blog/assets/js/32.a529ea15.js"><link rel="prefetch" href="/blog/assets/js/33.99fd84ff.js"><link rel="prefetch" href="/blog/assets/js/34.7384fda5.js"><link rel="prefetch" href="/blog/assets/js/35.94ac7c9f.js"><link rel="prefetch" href="/blog/assets/js/36.9c277942.js"><link rel="prefetch" href="/blog/assets/js/38.d35da3f3.js"><link rel="prefetch" href="/blog/assets/js/39.2c286b1d.js"><link rel="prefetch" href="/blog/assets/js/4.c9253ef3.js"><link rel="prefetch" href="/blog/assets/js/40.eabcd1ca.js"><link rel="prefetch" href="/blog/assets/js/41.754d257d.js"><link rel="prefetch" href="/blog/assets/js/42.41b869f0.js"><link rel="prefetch" href="/blog/assets/js/43.026e957e.js"><link rel="prefetch" href="/blog/assets/js/44.9068c97c.js"><link rel="prefetch" href="/blog/assets/js/45.12db5970.js"><link rel="prefetch" href="/blog/assets/js/5.60da61b1.js"><link rel="prefetch" href="/blog/assets/js/6.510d100b.js"><link rel="prefetch" href="/blog/assets/js/7.708b51f6.js"><link rel="prefetch" href="/blog/assets/js/8.f038f8be.js"><link rel="prefetch" href="/blog/assets/js/9.007189e8.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.22a2d9e4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">学习笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/blog/javaScript/" class="nav-link">
+  javaScript
+</a></div><div class="nav-item"><a href="/blog/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/blog/echarts/" class="nav-link">
+  echarts
+</a></div><div class="nav-item"><a href="/blog/uniapp/" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/blog/nodejs/fs.html" class="nav-link">
+  nodejs
+</a></div><div class="nav-item"><a href="/blog/mysql/mysql.html" class="nav-link">
+  MySQL
+</a></div><div class="nav-item"><a href="/blog/markDown/" class="nav-link">
+  markDown语法
+</a></div><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  面试
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/blog/javaScript/" class="nav-link">
+  javaScript
+</a></div><div class="nav-item"><a href="/blog/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/blog/echarts/" class="nav-link">
+  echarts
+</a></div><div class="nav-item"><a href="/blog/uniapp/" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/blog/nodejs/fs.html" class="nav-link">
+  nodejs
+</a></div><div class="nav-item"><a href="/blog/mysql/mysql.html" class="nav-link">
+  MySQL
+</a></div><div class="nav-item"><a href="/blog/markDown/" class="nav-link">
+  markDown语法
+</a></div><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  面试
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>nodejs基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/nodejs/fs.html" class="sidebar-link">fs模块</a></li><li><a href="/blog/nodejs/__dirname.html" class="sidebar-link">__dirname文件所处的目录</a></li><li><a href="/blog/nodejs/path.html" class="sidebar-link">path模块</a></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>http模块</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/nodejs/http/server.html" class="sidebar-link">服务器相关概念</a></li><li><a href="/blog/nodejs/http/createServer.html" class="sidebar-link">创建web服务器</a></li></ul></section></li><li><a href="/blog/nodejs/querystring.html" class="sidebar-link">querystring模块</a></li><li><a href="/blog/nodejs/模块化/module.html" class="active sidebar-link">Nodejs模块化</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>express框架</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/nodejs/express/express.html" class="sidebar-link">Express基本使用</a></li><li><a href="/blog/nodejs/express/route.html" class="sidebar-link">Express中的路由</a></li><li><a href="/blog/nodejs/express/Middleware.html" class="sidebar-link">中间件</a></li><li><a href="/blog/nodejs/express/port.html" class="sidebar-link">CORS</a></li></ul></section></li><li><a href="/blog/nodejs/mysql.html" class="sidebar-link">mysql模块</a></li><li><a href="/blog/nodejs/information.html" class="sidebar-link">身份认证</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="nodejs-模块化"><a href="#nodejs-模块化" class="header-anchor">#</a> nodejs 模块化</h1> <h3 id="一、nodejs-中模块的分类"><a href="#一、nodejs-中模块的分类" class="header-anchor">#</a> 一、nodejs 中模块的分类</h3> <p>Node.js 中根据模块来源的不同，将模块分为了 3 大类，分别是:</p> <ul><li><code>内置模块</code>(内置模块是由 Node.js 官方提供的，例如 fs、path、http 等)</li> <li><code>自定义模块</code>(用户创建的每个 js 文件，都是自定义模块)</li> <li><code>第三方模块</code>(<code>由第三方开发出来的模块</code>，并非官方提供的内置模块，也不是用户创建的自定义模块，使用前需要先下载)</li></ul> <h3 id="二、模块作用域"><a href="#二、模块作用域" class="header-anchor">#</a> 二、模块作用域</h3> <p>和函数作用域类似，在自定义模块中定义的<code>变量、方法</code>等成员，<code>只能在当前模块内被访问</code>，这种<code>模块级别的访问限制</code>，叫做<code>模块作用域</code>。</p> <h3 id="三、加载模块"><a href="#三、加载模块" class="header-anchor">#</a> 三、加载模块</h3> <p>使用强大的<code>require()</code>方法，可以加载需要的内置模块、用户自定义模块、第三方模块进行使用。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 1. 加载内置模块</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;fs&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2. 加载用户的自定义模块</span>
+<span class="token keyword">const</span> custom <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./custom.js&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3. 加载第三方模块</span>
+<span class="token keyword">const</span> moment <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;moment&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><strong>注意</strong>:使用 require()方法加载其它模块时，会执行被加载模块中的代码。</p> <h3 id="四、向外共享模块作用域中的成员"><a href="#四、向外共享模块作用域中的成员" class="header-anchor">#</a> 四、向外共享模块作用域中的成员</h3> <h4 id="_4-1-module-对象"><a href="#_4-1-module-对象" class="header-anchor">#</a> 4.1 module 对象</h4> <p>在每个.js 自定义模块中都有一个 module 对象，它里面<code>存储了和当前模块有关的信息</code></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>module<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Module <span class="token punctuation">{</span>
+  <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">'.'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'E:\\blog\\nodejs-study\\模块化'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">exports</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">parent</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token string">'E:\\blog\\nodejs-study\\模块化\\module.js'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">loaded</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">paths</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'E:\\blog\\nodejs-study\\模块化\\node_modules'</span><span class="token punctuation">,</span>
+    <span class="token string">'E:\\blog\\nodejs-study\\node_modules'</span><span class="token punctuation">,</span>
+    <span class="token string">'E:\\blog\\node_modules'</span><span class="token punctuation">,</span>
+    <span class="token string">'E:\\node_modules'</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h4 id="_4-2-module-export-对象"><a href="#_4-2-module-export-对象" class="header-anchor">#</a> 4.2 module.export 对象</h4> <p>在自定义模块中，可以使用<code>module.exports</code>对象，将模块内的成员共享出去，供外界使用。
+外界用<code>require()</code>方法导入自定义模块时，得到的就是 module.exports 所指向的对象。</p> <p><strong>在一个自定义模块中,默认情况下 module.expirt = {}</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 1.js</span>
+<span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span><span class="token function-variable function">sayHello</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+
+<span class="token comment">// 2.js</span>
+<span class="token keyword">const</span> m <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//{ username: '张三', sayHello: [Function (anonymous)], age: 20 }</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><strong>注意: 使用 require()方法导入模块时，导入的结果，<code>永远以module.exports指向的对象为准</code>。</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 1.js</span>
+<span class="token comment">// 向空对象{}中添加属性和方法</span>
+<span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span><span class="token function-variable function">sayHello</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+
+<span class="token comment">// 让module.exports 指向一个全新的对象</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;李四&quot;</span><span class="token punctuation">,</span>
+  <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Hi&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 2.js</span>
+<span class="token keyword">const</span> m <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//{ name: '李四', sayHi: [Function: sayHi] }</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h4 id="_4-3-exports-对象"><a href="#_4-3-exports-对象" class="header-anchor">#</a> 4.3 exports 对象</h4> <p>由于 module.exports 单词写起来比较复杂，为了简化向外共享成员的代码，Node 提供了<code>exports</code> 对象。<code>默认情况下，exports和module.exports 指向同一个对象</code>。最终共享的结果，还是以 module.exports 指向的对象为准。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>exports <span class="token operator">===</span> module<span class="token punctuation">.</span>exports<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 1.js</span>
+exports<span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">;</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">sayHello</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+exports<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2.js</span>
+<span class="token keyword">const</span> m <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//{ username: '张三', sayHello: [Function (anonymous)], age: 20 }</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p><strong>最终向外共享的结果 永远都是 module.exports 所指向的对象</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 1.js</span>
+<span class="token comment">//最终向外共享的结果 永远都是 module.exports 所指向的对象</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token string">&quot;男&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">username</span><span class="token operator">:</span> <span class="token string">&quot;张三&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2.js</span>
+<span class="token keyword">const</span> m <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//{ gender: '男', age: 18 }</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h3 id="五、node-js-中的模块化规范"><a href="#五、node-js-中的模块化规范" class="header-anchor">#</a> 五、Node.js 中的模块化规范</h3> <p><img src="/nodejs/CommonJS.png" alt=""></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/nodejs/querystring.html" class="prev">
+        querystring模块
+      </a></span> <span class="next"><a href="/blog/nodejs/express/express.html">
+        Express基本使用
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.140cd2b2.js" defer></script><script src="/blog/assets/js/2.e7771c76.js" defer></script><script src="/blog/assets/js/37.71398eb5.js" defer></script>
+  </body>
+</html>

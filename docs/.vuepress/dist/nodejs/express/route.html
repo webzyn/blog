@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Express 中的路由 | 学习笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.22a2d9e4.css" as="style"><link rel="preload" href="/blog/assets/js/app.140cd2b2.js" as="script"><link rel="preload" href="/blog/assets/js/2.e7771c76.js" as="script"><link rel="preload" href="/blog/assets/js/29.2afaf13e.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.86e4766a.js"><link rel="prefetch" href="/blog/assets/js/11.a3eef9be.js"><link rel="prefetch" href="/blog/assets/js/12.22112b52.js"><link rel="prefetch" href="/blog/assets/js/13.e7977ed5.js"><link rel="prefetch" href="/blog/assets/js/14.5089c927.js"><link rel="prefetch" href="/blog/assets/js/15.db7f5167.js"><link rel="prefetch" href="/blog/assets/js/16.ff728bf7.js"><link rel="prefetch" href="/blog/assets/js/17.a5243dd0.js"><link rel="prefetch" href="/blog/assets/js/18.2cd48698.js"><link rel="prefetch" href="/blog/assets/js/19.48460fef.js"><link rel="prefetch" href="/blog/assets/js/20.9a69379c.js"><link rel="prefetch" href="/blog/assets/js/21.32a13ddc.js"><link rel="prefetch" href="/blog/assets/js/22.5245ed89.js"><link rel="prefetch" href="/blog/assets/js/23.b1395c46.js"><link rel="prefetch" href="/blog/assets/js/24.319477d7.js"><link rel="prefetch" href="/blog/assets/js/25.35c0adcf.js"><link rel="prefetch" href="/blog/assets/js/26.f71261fd.js"><link rel="prefetch" href="/blog/assets/js/27.6f0b8c2c.js"><link rel="prefetch" href="/blog/assets/js/28.89655b47.js"><link rel="prefetch" href="/blog/assets/js/3.13e25464.js"><link rel="prefetch" href="/blog/assets/js/30.22a02252.js"><link rel="prefetch" href="/blog/assets/js/31.9fb15b17.js"><link rel="prefetch" href="/blog/assets/js/32.a529ea15.js"><link rel="prefetch" href="/blog/assets/js/33.99fd84ff.js"><link rel="prefetch" href="/blog/assets/js/34.7384fda5.js"><link rel="prefetch" href="/blog/assets/js/35.94ac7c9f.js"><link rel="prefetch" href="/blog/assets/js/36.9c277942.js"><link rel="prefetch" href="/blog/assets/js/37.71398eb5.js"><link rel="prefetch" href="/blog/assets/js/38.d35da3f3.js"><link rel="prefetch" href="/blog/assets/js/39.2c286b1d.js"><link rel="prefetch" href="/blog/assets/js/4.c9253ef3.js"><link rel="prefetch" href="/blog/assets/js/40.eabcd1ca.js"><link rel="prefetch" href="/blog/assets/js/41.754d257d.js"><link rel="prefetch" href="/blog/assets/js/42.41b869f0.js"><link rel="prefetch" href="/blog/assets/js/43.026e957e.js"><link rel="prefetch" href="/blog/assets/js/44.9068c97c.js"><link rel="prefetch" href="/blog/assets/js/45.12db5970.js"><link rel="prefetch" href="/blog/assets/js/5.60da61b1.js"><link rel="prefetch" href="/blog/assets/js/6.510d100b.js"><link rel="prefetch" href="/blog/assets/js/7.708b51f6.js"><link rel="prefetch" href="/blog/assets/js/8.f038f8be.js"><link rel="prefetch" href="/blog/assets/js/9.007189e8.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.22a2d9e4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">学习笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/blog/javaScript/" class="nav-link">
+  javaScript
+</a></div><div class="nav-item"><a href="/blog/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/blog/echarts/" class="nav-link">
+  echarts
+</a></div><div class="nav-item"><a href="/blog/uniapp/" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/blog/nodejs/fs.html" class="nav-link">
+  nodejs
+</a></div><div class="nav-item"><a href="/blog/mysql/mysql.html" class="nav-link">
+  MySQL
+</a></div><div class="nav-item"><a href="/blog/markDown/" class="nav-link">
+  markDown语法
+</a></div><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  面试
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/blog/javaScript/" class="nav-link">
+  javaScript
+</a></div><div class="nav-item"><a href="/blog/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/blog/echarts/" class="nav-link">
+  echarts
+</a></div><div class="nav-item"><a href="/blog/uniapp/" class="nav-link">
+  uniapp
+</a></div><div class="nav-item"><a href="/blog/nodejs/fs.html" class="nav-link">
+  nodejs
+</a></div><div class="nav-item"><a href="/blog/mysql/mysql.html" class="nav-link">
+  MySQL
+</a></div><div class="nav-item"><a href="/blog/markDown/" class="nav-link">
+  markDown语法
+</a></div><div class="nav-item"><a href="/blog/interview/" class="nav-link">
+  面试
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nodejs基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>express框架</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/nodejs/express/express.html" class="sidebar-link">Express基本使用</a></li><li><a href="/blog/nodejs/express/route.html" aria-current="page" class="active sidebar-link">Express中的路由</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/nodejs/express/route.html#路由的使用" class="sidebar-link">路由的使用</a></li></ul></li><li><a href="/blog/nodejs/express/Middleware.html" class="sidebar-link">中间件</a></li><li><a href="/blog/nodejs/express/port.html" class="sidebar-link">CORS</a></li></ul></section></li><li><a href="/blog/nodejs/mysql.html" class="sidebar-link">mysql模块</a></li><li><a href="/blog/nodejs/information.html" class="sidebar-link">身份认证</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="express-中的路由"><a href="#express-中的路由" class="header-anchor">#</a> Express 中的路由</h1> <p>在 Express 中，路由指的是<strong>客户端的请求</strong>与<strong>服务器处理函数</strong>之间的<strong>映射关系</strong>。</p> <p>Express 中的路由分 3 部分组成，分别是<strong>请求的类型</strong>、<strong>请求的 URL 地址</strong>、<strong>处理函数</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>app<span class="token punctuation">.</span><span class="token constant">METHOD</span><span class="token punctuation">(</span><span class="token constant">PATH</span><span class="token punctuation">,</span> <span class="token constant">HANDLER</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>例:</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">//匹配 GET 请求，且请求 URL 为 /</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span>res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>&quot;Hello world<span class="token operator">!</span>'<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">//匹配 POST 请求，且请求 URL 为 /</span>
+app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Got a POST request'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><strong>路由的匹配过程</strong></p> <p><img src="/nodejs/express/express_6.png" alt=""></p> <h2 id="路由的使用"><a href="#路由的使用" class="header-anchor">#</a> 路由的使用</h2> <h3 id="_1-最简单的用法"><a href="#_1-最简单的用法" class="header-anchor">#</a> 1. 最简单的用法</h3> <p>在 Express 中使用路由最简单的方式，就是把路由挂载到 app 上</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token comment">//创建web服务器，命名为 app</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">//挂载路由</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span>res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Hello world.'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span>res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Post Request.'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">//启动web服务器</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token function">，</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'server running at http:1/127.0.0.1'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="_2-app-route"><a href="#_2-app-route" class="header-anchor">#</a> 2. app.route()</h3> <p>为路由路径创建可链接的路由</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>app
+  <span class="token punctuation">.</span><span class="token function">route</span><span class="token punctuation">(</span><span class="token string">&quot;/book&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">&quot;Get a random book&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">&quot;Add a book&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">&quot;Update the book&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="_3-模块化路由-express-router"><a href="#_3-模块化路由-express-router" class="header-anchor">#</a> 3. 模块化路由(express.Router)</h3> <p><img src="/nodejs/express/express_7.png" alt=""></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// app.js</span>
+<span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;express&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 导入路由模块</span>
+<span class="token keyword">var</span> router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./router&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 注册路由模块</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// app.use() 注册全局中间件</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// router.js</span>
+<span class="token comment">// 1. 导入 express</span>
+<span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;express&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 2. 创建路由对象</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 3. 挂载具体的路由</span>
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;/user/list&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">&quot;Get user list&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">&quot;/user/add&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">&quot;Post user add&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 4. 向外导出路由对象</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p><img src="/nodejs/express/express_8.png" alt=""></p> <h3 id="_4-为路由模块添加路由前缀"><a href="#_4-为路由模块添加路由前缀" class="header-anchor">#</a> 4. 为路由模块添加路由前缀</h3> <p>类似于托管静态资源时,为静态资源统一挂载访问前缀一样,路由模块添加前缀的方式也非常简单</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 导入路由模块</span>
+<span class="token keyword">var</span> router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./router&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 使用app.use() 注册路由模块 , 并添加统一的访问前缀 /api</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">&quot;/api&quot;</span><span class="token punctuation">,</span> router<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// app.use() 注册全局中间件</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><img src="/nodejs/express/express_9.png" alt=""></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/nodejs/express/express.html" class="prev">
+        Express基本使用
+      </a></span> <span class="next"><a href="/blog/nodejs/express/Middleware.html">
+        中间件
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.140cd2b2.js" defer></script><script src="/blog/assets/js/2.e7771c76.js" defer></script><script src="/blog/assets/js/29.2afaf13e.js" defer></script>
+  </body>
+</html>
