@@ -67,6 +67,10 @@ module.exports = {
           collapsable: false, //是否能收起来,
           children: [
             {
+              title: "vue2组件传值",
+              path: "/vue/components/correspondence",
+            },
+            {
               title: "slot插槽",
               path: "/vue/components/slot",
             },
@@ -77,6 +81,16 @@ module.exports = {
             {
               title: ".sync父子组件间数据双向绑定",
               path: "/vue/components/sync",
+            },
+          ],
+        },
+        {
+          title: "工具",
+          collapsable: false, //是否能收起来,
+          children: [
+            {
+              title: "Vuex",
+              path: "/vue/vuex",
             },
           ],
         },
