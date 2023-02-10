@@ -92,6 +92,10 @@ module.exports = {
               title: "Vuex",
               path: "/vue/vuex",
             },
+            {
+              title: "vue-router",
+              path: "/vue/vueRouter",
+            },
           ],
         },
         {
