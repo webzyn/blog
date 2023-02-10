@@ -4,11 +4,11 @@
 
 **结构如下**
 
-![](/javascript/fuzzySearch/3.png)
+<img :src="$withBase('/javascript/fuzzySearch/3.png')">
 
 **如下是 html 模板 其中 treeList 为 res.data 在本页的末尾**
 
-![](/javascript/fuzzySearch/2.png)
+<img :src="$withBase('/javascript/fuzzySearch/2.png')">
 
 **第一个 el-tree 是全部数据 第二个 tree 是搜索后的数据**
 
@@ -67,8 +67,8 @@ export default {
 
 **效果如图**
 
-![](/javascript/fuzzySearch/4.png)
-![](/javascript/fuzzySearch/5.png)
+<img :src="$withBase('/javascript/fuzzySearch/4.png')">
+<img :src="$withBase('/javascript/fuzzySearch/5.png')">
 
 **从后端返回数据如下**
 

@@ -74,4 +74,4 @@ export default {
 </style>
 ```
 
-![](/echarts/effectScatter_1.png)
+<img :src="$withBase('/echarts/effectScatter_1.png')">

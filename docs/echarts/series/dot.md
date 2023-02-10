@@ -58,7 +58,7 @@ var option = {
 };
 ```
 
-![](/echarts/dot_1.png)
+<img :src="$withBase('/echarts/dot_1.png')">
 
 ---
 

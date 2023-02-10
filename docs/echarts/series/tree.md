@@ -94,7 +94,7 @@ export default {
 </style>
 ```
 
-![](/echarts/tree_1.png)
+<img :src="$withBase('/echarts/tree_1.png')">
 
 ```js
 //树图的布局，有 正交 和 径向 两种
@@ -103,7 +103,7 @@ export default {
 layout: "radial",
 ```
 
-![](/echarts/tree_2.png)
+<img :src="$withBase('/echarts/tree_2.png')">
 
 ```js
 //树图的布局，有 正交 和 径向 两种
@@ -116,7 +116,7 @@ layout: "orthogonal",
 orient: "TB",
 ```
 
-![](/echarts/tree_3.png)
+<img :src="$withBase('/echarts/tree_3.png')">
 
 ```js
 layout: "orthogonal",
@@ -128,7 +128,7 @@ edgeShape: "polyline",
 edgeForkPosition: "50%",
 ```
 
-![](/echarts/tree_4.png)
+<img :src="$withBase('/echarts/tree_4.png')">
 
 ```js
 // 是否开启鼠标缩放和平移漫游 'scale'开启缩放 'move'开启平移 true都开启
@@ -143,7 +143,7 @@ expandAndCollapse: true,
 initialTreeDepth: 2,
 ```
 
-![](/echarts/tree_5.png)
+<img :src="$withBase('/echarts/tree_5.png')">
 
 ```js
 // 叶子节点的特殊配置

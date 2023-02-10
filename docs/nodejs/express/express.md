@@ -105,18 +105,19 @@ app.get("/user/:id", (req, res) => {
 
 例:
 
-![](/nodejs/express/express_2.png)![](/nodejs/express/express_1.png)
+<img :src="$withBase('/nodejs/express/express_2.png')">
+<img :src="$withBase('/nodejs/express/express_1.png')">
 
 ## 4. 托管静态资源
 
 ### 4.1 express.static()
 
-![](/nodejs/express/express_3.png)
+<img :src="$withBase('/nodejs/express/express_3.png')">
 
 ### 4.2 托管多个静态资源目录
 
-![](/nodejs/express/express_4.png)
+<img :src="$withBase('/nodejs/express/express_4.png')">
 
 ### 4.3 挂载路径前缀
 
-![](/nodejs/express/express_5.png)
+<img :src="$withBase('/nodejs/express/express_5.png')">

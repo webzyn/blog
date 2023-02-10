@@ -3,10 +3,10 @@
 `Blob（Binary Large Object）表示二进制类型的大对象。`在数据库管理系统中，将二进制数据存储为一个单一个体的集合。Blob 通常是影像、声音或多媒体文件。**在 JavaScript 中 Blob 类型的对象表示不可变的类似文件对象的原始数据**。
 
 以下是一个 Blob 对象
-![](/javascript/Blob_1.jpg)
+<img :src="$withBase('/javascript/Blob_1.jpg')">
 
 `Blob` 由一个可选的字符串 `type`（通常是 [MIME 类型](./MIME.html)）和 `blobParts` 组成：
-![Blob组成图](/javascript/Blob_2.jpg)
+<img :src="$withBase('/javascript/Blob_2.jpg')">
 
 ## 1、Blob 构造函数
 
@@ -95,7 +95,7 @@ mounted () {
 
 **返回的数据 res.data**
 
-![](/javascript/Blob_1.jpg)
+<img :src="$withBase('/javascript/Blob_1.jpg')">
 
 **生成的 url => this.processStep**
 

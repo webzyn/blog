@@ -1,6 +1,6 @@
 # option 常用配置项
 
-![](/echarts/1.png)
+<img :src="$withBase('/echarts/1.png')">
 
 ## title 标题
 
@@ -28,7 +28,7 @@ var option = {
 // sublink : http://localhost:8081/echarts/bar => http://localhost:8081/fullCalendar
 ```
 
-![](/echarts/title_1.png)
+<img :src="$withBase('/echarts/title_1.png')">
 
 [title 其他配置项](https://echarts.apache.org/zh/option.html#title)
 
@@ -48,7 +48,7 @@ var option = {
 };
 ```
 
-![](/echarts/grid_1.png)
+<img :src="$withBase('/echarts/grid_1.png')">
 
 ```js
 var option = {
@@ -69,7 +69,7 @@ var option = {
 
 [grid 其他配置](https://echarts.apache.org/zh/option.html#grid)
 
-![](/echarts/grid_2.png)
+<img :src="$withBase('/echarts/grid_2.png')">
 
 ## tooltip 提示框组件
 
@@ -119,9 +119,9 @@ var option = {
 
 - 'cross' 十字准星指示器。其实是种简写，表示启用两个正交的轴的 axisPointer。
 
-![](/echarts/tooltip_1.png)
-![](/echarts/tooltip_2.png)
-![](/echarts/tooltip_3.png)
+<img :src="$withBase('/echarts/tooltip_1.png')">
+<img :src="$withBase('/echarts/tooltip_2.png')">
+<img :src="$withBase('/echarts/tooltip_3.png')">
 
 [tooltip 其他配置](https://echarts.apache.org/zh/option.html#tooltip)
 
@@ -180,7 +180,7 @@ var option = {
 };
 ```
 
-![](/echarts/legend_1.png)
+<img :src="$withBase('/echarts/legend_1.png')">
 
 [legend 其他配置](https://echarts.apache.org/zh/option.html#legend)
 
@@ -236,7 +236,7 @@ var option = {
 };
 ```
 
-![](/echarts/xAxis_1.png)
+<img :src="$withBase('/echarts/xAxis_1.png')">
 [xAxis 具体配置](https://echarts.apache.org/zh/option.html#xAxis)
 
 ## yAxis y 轴

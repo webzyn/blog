@@ -24,7 +24,7 @@ app.post('/', function (req, res) {
 
 **路由的匹配过程**
 
-![](/nodejs/express/express_6.png)
+<img :src="$withBase('/nodejs/express/express_6.png')">
 
 ## 路由的使用
 
@@ -65,7 +65,7 @@ app
 
 ### 3. 模块化路由(express.Router)
 
-![](/nodejs/express/express_7.png)
+<img :src="$withBase('/nodejs/express/express_7.png')">
 
 ```js
 // app.js
@@ -95,7 +95,7 @@ router.post("/user/add", (req, res) => {
 module.exports = router;
 ```
 
-![](/nodejs/express/express_8.png)
+<img :src="$withBase('/nodejs/express/express_8.png')">
 
 ### 4. 为路由模块添加路由前缀
 
@@ -108,4 +108,4 @@ var router = require("./router");
 app.use("/api", router); // app.use() 注册全局中间件
 ```
 
-![](/nodejs/express/express_9.png)
+<img :src="$withBase('/nodejs/express/express_9.png')">

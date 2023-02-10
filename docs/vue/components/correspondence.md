@@ -292,13 +292,13 @@ export default {
   </script>
   ```
 
-  ![](/vue/components/props_7.png)
+  <img :src="$withBase('/vue/components/props_7.png')">
 
   **总结:**\
   1.当设置 inheritAttrs: true（默认）时，子组件的顶层标签元素中（本例子的 div 元素）会渲染出父组件传递过来的属性(本例子的 aaa="1111")。\
   2.当设置 inheritAttrs: false 时，子组件的顶层标签元素中（本例子的 div 元素）不会渲染出父组件传递过来的属性(本例子的 aaa="1111")。\
   3.不管 inheritAttrs 为 true 或者 false，子组件中都能通过$attrs 属性获取到父组件中传递过来的属性
-  ![](/vue/components/props_8.png)
+  <img :src="$withBase('/vue/components/props_8.png')">
 
   - **$attrs**
 
@@ -312,11 +312,11 @@ export default {
 
     - **个人理解**: 接收除了带有.native 事件修饰符的所有事件监听器
 
-![](/vue/components/props_5.png)
+<img :src="$withBase('/vue/components/props_5.png')">
 
 在很多开发情况下，我们只是想把组件 A 的数据传给组件 C，如果用 props 来进行组件通信的话，虽然可以实现，但是代码可读性上不强，且难维护。
 
-![](/vue/components/props_6.png)
+<img :src="$withBase('/vue/components/props_6.png')">
 
 ```vue
 <!-- 组件A -->
@@ -437,7 +437,7 @@ export default {
 </script>
 ```
 
-![](/vue/components/props_9.png)
+<img :src="$withBase('/vue/components/props_9.png')">
 
 ### 三、兄弟组件之间传值
 
@@ -526,8 +526,8 @@ export default {
 </script>
 ```
 
-![](/vue/components/props_1.png)
-![](/vue/components/props_2.png)
+<img :src="$withBase('/vue/components/props_1.png')">
+<img :src="$withBase('/vue/components/props_2.png')">
 
 ---
 
@@ -601,8 +601,8 @@ export default {
 </script>
 ```
 
-![](/vue/components/props_3.png)
-![](/vue/components/props_4.png)
+<img :src="$withBase('/vue/components/props_3.png')">
+<img :src="$withBase('/vue/components/props_4.png')">
 
 ---
 

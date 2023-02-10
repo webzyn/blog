@@ -98,10 +98,16 @@ _这里显示的是斜体_
 ![图片描述](图片路径)       加图片描述
 ![](图片路径)             图片描述可以不写
 
+以上方法部署在gitee上失效,修改为如下
+<img :src="$withBase('图片路径')">
+
+例: <img :src="$withBase('/vue/vueRouter/router_1.png')">
+
 ```
 
 效果\
 ![我是图片描述](/hero.webp)
+<img :src="$withBase('/hero.webp')">
 
 （2）插入互联网图片\
 注：图片描述与插入本地图片一样，描述可以不写。

@@ -105,14 +105,14 @@ OR 表示**只要满足任意一个条件**即可，相当于 JavaScript 中的�
 select * from users where status=0 and id<3
 ```
 
-![](/mysql/mysql_1.png)
+<img :src="$withBase('/mysql/mysql_1.png')">
 
 ```sql
 -- 使用OR来显示所有状态为1 或username为 zs的用户
 select * from users where status=1 or username='zs'
 ```
 
-![](/mysql/mysql_2.png)
+<img :src="$withBase('/mysql/mysql_2.png')">
 
 ### 1.9 ORDER BY 子句
 
@@ -126,14 +126,14 @@ select * from users order by status
 select * from users order by status asc
 ```
 
-![](/mysql/mysql_3.png)
+<img :src="$withBase('/mysql/mysql_3.png')">
 
 ```sql
 -- 对users表中的数据 按照 id 字段进行降序排序
 select * from users order by id desc
 ```
 
-![](/mysql/mysql_4.png)
+<img :src="$withBase('/mysql/mysql_4.png')">
 
 ---
 
@@ -144,7 +144,7 @@ select * from users order by id desc
 select * from users order by status desc,username asc
 ```
 
-![](/mysql/mysql_5.png)
+<img :src="$withBase('/mysql/mysql_5.png')">
 
 ### 1.10 COUNT(\*)函数
 
@@ -160,4 +160,4 @@ select count(*) from 表名称
 select username as uname,password as pwd from users
 ```
 
-![](/mysql/mysql_6.png)
+<img :src="$withBase('/mysql/mysql_6.png')">

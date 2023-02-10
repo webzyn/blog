@@ -65,8 +65,9 @@ methods:{
 ```
 
 一个“路径参数”使用冒号 : 标记。匹配到路由时，参数会被设置到`this.$route.params`
-![](/vue/vueRouter/router_1.png)
-![](/vue/vueRouter/router_2.png)
+
+<img :src="$withBase('/vue/vueRouter/router_1.png')">
+<img :src="$withBase('/vue/vueRouter/router_2.png')">
 
 ### 路由参数变化后 响应
 

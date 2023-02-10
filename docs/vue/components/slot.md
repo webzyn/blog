@@ -6,15 +6,15 @@
 
 **父组件**
 
-![](/vue/components/slot_1.png)
+<img :src="$withBase('/vue/components/slot_1.png')">
 
 **子组件**
 
-![](/vue/components/slot_2.png)
+<img :src="$withBase('/vue/components/slot_2.png')">
 
 **渲染结果**
 
-![](/vue/components/slot_3.png)
+<img :src="$withBase('/vue/components/slot_3.png')">
 
 ### 2. 具名插槽
 
@@ -22,15 +22,15 @@
 
 **父组件**
 
-![](/vue/components/slot_4.png)
+<img :src="$withBase('/vue/components/slot_4.png')">
 
 **子组件**
 
-![](/vue/components/slot_5.png)
+<img :src="$withBase('/vue/components/slot_5.png')">
 
 **渲染结果**
 
-![](/vue/components/slot_6.png)
+<img :src="$withBase('/vue/components/slot_6.png')">
 
 ### 3. 作用域插槽 | 带数据的插槽
 
@@ -38,12 +38,12 @@
 
 **父组件**
 
-![](/vue/components/slot_7.png)
+<img :src="$withBase('/vue/components/slot_7.png')">
 
 **子组件**
 
-![](/vue/components/slot_8.png)
+<img :src="$withBase('/vue/components/slot_8.png')">
 
 **渲染结果**
 
-![](/vue/components/slot_9.png)
+<img :src="$withBase('/vue/components/slot_9.png')">

@@ -142,4 +142,4 @@ console.log(m); //{ gender: '男', age: 18 }
 
 ### 五、Node.js 中的模块化规范
 
-![](/nodejs/CommonJS.png)
+<img :src="$withBase('/nodejs/CommonJS.png')">

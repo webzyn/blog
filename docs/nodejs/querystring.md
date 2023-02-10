@@ -16,4 +16,4 @@ const body = qs.parse(str);
 console.log(body); //{ name: '男', age: '22', gender: '22' }
 ```
 
-![](/nodejs/express/port_1.png)
+<img :src="$withBase('/nodejs/express/port_1.png')">

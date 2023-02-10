@@ -65,11 +65,11 @@ module.exports = router;
 
 ### 3.1 使用 cors 中间件解决跨域问题
 
-![](/nodejs/express/port_2.png)
+<img :src="$withBase('/nodejs/express/port_2.png')">
 
 ### 3.2 什么是 CORS
 
-![](/nodejs/express/port_3.png)
+<img :src="$withBase('/nodejs/express/port_3.png')">
 
 ### 3.3 CORS 响应头部
 
@@ -94,7 +94,7 @@ res.setHeader("Access-Control-Allow-Origin", "*");
 
 **3.3.2 Access-Control-Allow-Headers**
 
-![](/nodejs/express/port_4.png)
+<img :src="$withBase('/nodejs/express/port_4.png')">
 
 ```js
 //允许客户端额外向服务器发送Content-Type 请求头和X-Custom-Header 请求头
@@ -106,7 +106,7 @@ res.setHeader("Access-Control-Allow-Headers", "Content-Ttype,X-Custom-Header");
 
 **3.3.3 Access-Control-Allow-Methods**
 
-![](/nodejs/express/port_5.png)
+<img :src="$withBase('/nodejs/express/port_5.png')">
 
 ```js
 //只允许POST、GET、DELETE、HEAD请求方法
@@ -128,23 +128,23 @@ res.setHeader( ' Access-Control-Allow-Methods', '*')
 
 **3.4.1 简单请求**
 
-![](/nodejs/express/port_6.png)
+<img :src="$withBase('/nodejs/express/port_6.png')">
 
 ---
 
 **3.4.2 预检请求**
 
-![](/nodejs/express/port_7.png)
+<img :src="$withBase('/nodejs/express/port_7.png')">
 
 ---
 
 **3.4.3 简单请求和预检请求的区别**
 
-![](/nodejs/express/port_8.png)
+<img :src="$withBase('/nodejs/express/port_8.png')">
 
 ## 4. JSONP 接口
 
-![](/nodejs/express/port_9.png)
+<img :src="$withBase('/nodejs/express/port_9.png')">
 
 ### 4.1 JSONP 接口注意事项
 
@@ -152,7 +152,7 @@ res.setHeader( ' Access-Control-Allow-Methods', '*')
 
 ### 4.2 实现 JSONP 接口的步骤
 
-![](/nodejs/express/port_10.png)
+<img :src="$withBase('/nodejs/express/port_10.png')">
 
 ```js
 // 必须在配置 cors 中间件之前,配置 JSONP 接口

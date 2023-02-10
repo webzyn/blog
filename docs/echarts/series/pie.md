@@ -70,7 +70,7 @@ var option = {
 }
 ```
 
-![](/echarts/pie_1.png)
+<img :src="$withBase('/echarts/pie_1.png')">
 
 ```js
 series: [
@@ -144,7 +144,7 @@ series: [
 ],
 ```
 
-![](/echarts/pie_2.png)
+<img :src="$withBase('/echarts/pie_2.png')">
 
 ```js
 //饼图的中心（圆心）坐标
@@ -154,7 +154,7 @@ center: ["50%", "50%"],
 radius: [45, 100],
 ```
 
-![](/echarts/pie_3.png)
+<img :src="$withBase('/echarts/pie_3.png')">
 
 ## 完整代码
 

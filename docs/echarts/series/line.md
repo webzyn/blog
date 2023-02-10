@@ -84,7 +84,7 @@ var option = {
 };
 ```
 
-![](/echarts/line_1.png)
+<img :src="$withBase('/echarts/line_1.png')">
 
 ---
 
@@ -100,7 +100,7 @@ lineStyle: {
 },
 ```
 
-![](/echarts/line_2.png)
+<img :src="$withBase('/echarts/line_2.png')">
 
 ---
 
@@ -135,8 +135,8 @@ areaStyle: {
 }
 ```
 
-![](/echarts/line_3.png)
-![](/echarts/line_4.png)
+<img :src="$withBase('/echarts/line_3.png')">
+<img :src="$withBase('/echarts/line_4.png')">
 
 ---
 
@@ -149,9 +149,9 @@ smooth: true,
 smoothMonotone: "x",
 ```
 
-![](/echarts/line_5.png)
-![](/echarts/line_6.png)
-![](/echarts/line_7.png)
+<img :src="$withBase('/echarts/line_5.png')">
+<img :src="$withBase('/echarts/line_6.png')">
+<img :src="$withBase('/echarts/line_7.png')">
 
 ---
 
@@ -205,6 +205,6 @@ markArea: {
 }
 ```
 
-![](/echarts/line_8.png)
+<img :src="$withBase('/echarts/line_8.png')">
 
 [折线图 其他配置](https://echarts.apache.org/zh/option.html#series-line)

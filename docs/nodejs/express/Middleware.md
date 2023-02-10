@@ -8,19 +8,19 @@
 
 ### 1.2.现实生活中的例子
 
-![](/nodejs/express/middleware_1.png)
+<img :src="$withBase('/nodejs/express/middleware_1.png')">
 
 ### 1.3. Express 中间件的调用流程
 
-![](/nodejs/express/middleware_2.png)
+<img :src="$withBase('/nodejs/express/middleware_2.png')">
 
 ### 1.4. Express 中间件的格式
 
-![](/nodejs/express/middleware_3.png)
+<img :src="$withBase('/nodejs/express/middleware_3.png')">
 
 ### 1.5 next 函数的作用
 
-![](/nodejs/express/middleware_4.png)
+<img :src="$withBase('/nodejs/express/middleware_4.png')">
 
 ## 2. Express 中间件的使用
 
@@ -68,7 +68,7 @@ app.use((req, res, next) => {
 
 ### 2.4 中间件的作用
 
-![](/nodejs/express/middleware_5.png)
+<img :src="$withBase('/nodejs/express/middleware_5.png')">
 
 ### 2.5 定义多个全局中间件
 
@@ -138,11 +138,11 @@ app.get("/", [mw1, mw2], (req, res) => {
 
 ### 2.8 中间件的 5 个使用注意事项
 
-![](/nodejs/express/middleware_6.png)
+<img :src="$withBase('/nodejs/express/middleware_6.png')">
 
 ## 3. 中间件的分类
 
-![](/nodejs/express/middleware_7.png)
+<img :src="$withBase('/nodejs/express/middleware_7.png')">
 
 ### 3.1 应用级别的中间件
 
@@ -208,7 +208,7 @@ app.listen(81);
 
 ### 3.4 Express 内置的中间件
 
-![](/nodejs/express/middleware_8.png)
+<img :src="$withBase('/nodejs/express/middleware_8.png')">
 
 ```js
 //配置解析 application/json 格式数据的内置中间件
@@ -241,11 +241,12 @@ app.post("/book", (req, res) => {
 app.listen(81);
 ```
 
-![](/nodejs/express/middleware_9.png) ![](/nodejs/express/middleware_10.png)
+<img :src="$withBase('/nodejs/express/middleware_9.png')">
+<img :src="$withBase('/nodejs/express/middleware_10.png')">
 
 ### 3.5 第三方的中间件
 
-![](/nodejs/express/middleware_11.png)
+<img :src="$withBase('/nodejs/express/middleware_11.png')">
 
 ```js
 const express = require("express");
@@ -269,7 +270,7 @@ app.listen(81);
 
 ### 4.1 手动模拟一个类似于 express.urlencoded 这样的中间件，来解析 POST 提交到服务器的表单数据
 
-![](/nodejs/express/middleware_12.png)
+<img :src="$withBase('/nodejs/express/middleware_12.png')">
 
 ```js
 // bodyParser.js
@@ -318,4 +319,4 @@ app.post("/user", (req, res) => {
 app.listen(81);
 ```
 
-![](/nodejs/express/middleware_13.png)
+<img :src="$withBase('/nodejs/express/middleware_13.png')">

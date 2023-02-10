@@ -298,7 +298,7 @@ export default {
 ## 6、按属性进行拆分
 
 新建四个文件，分别是 state.js、getters.js、mutations.js、actions.js\
-![](/vue/vuex_1.png)
+<img :src="$withBase('/vue/vuex_1.png')">
 
 ```js
 // index.js

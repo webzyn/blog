@@ -70,7 +70,7 @@ var option = {
 };
 ```
 
-![](/echarts/bar_1.png)
+<img :src="$withBase('/echarts/bar_1.png')">
 
 **_stack: string_**
 
@@ -227,6 +227,6 @@ export default {
 </style>
 ```
 
-![](/echarts/bar_2.png)
+<img :src="$withBase('/echarts/bar_2.png')">
 
 [柱状图 具体配置](https://echarts.apache.org/zh/option.html#series-bar)

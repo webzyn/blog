@@ -70,7 +70,7 @@ Cookie 是**存储在用户浏览器中的一段不超过 4KB 的字符串**。�
 
 随后，当客户端浏览器每次请求服务器的时候，浏览器会`自动`将身份认证相关的 Cookie，**通过请求头的形式**发送给服务器，服务器即可验明客户端的身份。
 
-![](/nodejs/information_1.png)
+<img :src="$withBase('/nodejs/information_1.png')">
 
 **Cookie 不具有安全性**
 
@@ -80,7 +80,7 @@ Cookie 是**存储在用户浏览器中的一段不超过 4KB 的字符串**。�
 
 ### 1.2 Session 工作原理
 
-![](/nodejs/information_2.png)
+<img :src="$withBase('/nodejs/information_2.png')">
 
 ### 1.3 在 Express 中使用 Session 认证
 
@@ -164,7 +164,7 @@ JWT(JSON Web Token)是目`前最流行`的**跨域认证解决方案**
 
 用户的信息通过 Token 字符串的形式，保存在客户端浏览器中。服务器通过还原 Token 字符串的形式来认证用户的身份。
 
-![](/nodejs/information_3.png)
+<img :src="$withBase('/nodejs/information_3.png')">
 
 ### 2.2 JWT 的组成部分
 
