@@ -1,6 +1,7 @@
 module.exports = {
   base: "/blog/",
-  title: "学习笔记",
+  // title: "学习笔记",
+  title: "note",
   // description: "菜鸟进阶之路",
   themeConfig: {
     // 导航栏
@@ -47,17 +48,41 @@ module.exports = {
     sidebar: {
       "/markDown/": "auto",
       "/javaScript/": [
-        { title: "Bolb", path: "/javaScript/blob" },
-        { title: "MIME类型", path: "/javaScript/MIME" },
-        { title: "树形结构模糊搜索", path: "/javaScript/fuzzySearch" },
+        {
+          title: "js",
+          collapsable: false,
+          children: [
+            {
+              title: "数组方法",
+              path: "/javaScript/basis/array",
+            },
+            {
+              title: "字符串方法",
+              path: "/javaScript/basis/string",
+            },
+            {
+              title: "四种for循环",
+              path: "/javaScript/es6/for",
+            },
+          ],
+        },
         {
           title: "ES6",
           collapsable: false, //是否能收起来
           children: [
             {
-              title: "for of 与 for in",
-              path: "/javaScript/es6/forof_forin",
+              title: "四种for循环",
+              path: "/javaScript/es6/for",
             },
+          ],
+        },
+        {
+          title: "其他",
+          collapsable: false,
+          children: [
+            { title: "Bolb", path: "/javaScript/blob" },
+            { title: "MIME类型", path: "/javaScript/MIME" },
+            { title: "树形结构模糊搜索", path: "/javaScript/fuzzySearch" },
           ],
         },
       ],
@@ -221,4 +246,4 @@ module.exports = {
   markdown: {
     lineNumbers: true,
   },
-};
+}
