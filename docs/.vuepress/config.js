@@ -53,16 +53,32 @@ module.exports = {
           collapsable: false,
           children: [
             {
-              title: "数组方法",
+              title: "Array对象",
               path: "/javaScript/basis/array",
             },
             {
-              title: "字符串方法",
+              title: "Object对象",
+              path: "/javaScript/basis/object",
+            },
+            {
+              title: "String对象",
               path: "/javaScript/basis/string",
+            },
+            {
+              title: "Math对象",
+              path: "/javaScript/basis/Math",
+            },
+            {
+              title: "Date对象",
+              path: "/javaScript/basis/Date",
             },
             {
               title: "四种for循环",
               path: "/javaScript/es6/for",
+            },
+            {
+              title: "new关键字",
+              path: "/javaScript/basis/new",
             },
           ],
         },
