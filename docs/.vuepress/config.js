@@ -11,8 +11,8 @@ module.exports = {
         link: "/",
       },
       {
-        text: "javaScript",
-        link: "/javaScript/",
+        text: "javascript",
+        link: "/javascript/",
       },
       {
         text: "Vue",
@@ -47,38 +47,38 @@ module.exports = {
     // sidebar: "auto",
     sidebar: {
       "/markDown/": "auto",
-      "/javaScript/": [
+      "/javascript/": [
         {
           title: "js",
           collapsable: false,
           children: [
             {
               title: "Array对象",
-              path: "/javaScript/basis/array",
+              path: "/javascript/basis/array",
             },
             {
               title: "Object对象",
-              path: "/javaScript/basis/object",
+              path: "/javascript/basis/object",
             },
             {
               title: "String对象",
-              path: "/javaScript/basis/string",
+              path: "/javascript/basis/string",
             },
             {
               title: "Math对象",
-              path: "/javaScript/basis/Math",
+              path: "/javascript/basis/Math",
             },
             {
               title: "Date对象",
-              path: "/javaScript/basis/Date",
+              path: "/javascript/basis/Date",
             },
             {
               title: "四种for循环",
-              path: "/javaScript/basis/for",
+              path: "/javascript/basis/for",
             },
             {
               title: "new关键字",
-              path: "/javaScript/basis/new",
+              path: "/javascript/basis/new",
             },
           ],
         },
@@ -88,23 +88,23 @@ module.exports = {
           children: [
             {
               title: "Symbol",
-              path: "/javaScript/es6/Symbol",
+              path: "/javascript/es6/Symbol",
             },
             {
               title: "set和map",
-              path: "/javaScript/es6/set_map",
+              path: "/javascript/es6/set_map",
             },
             {
               title: "set、array、map和object区别",
-              path: "/javaScript/es6/set_array_map_object",
+              path: "/javascript/es6/set_array_map_object",
             },
             {
               title: "Promise对象",
-              path: "/javaScript/es6/Promise",
+              path: "/javascript/es6/Promise",
             },
             {
               title: "四种for循环",
-              path: "/javaScript/basis/for",
+              path: "/javascript/basis/for",
             },
           ],
         },
@@ -112,9 +112,9 @@ module.exports = {
           title: "其他",
           collapsable: false,
           children: [
-            { title: "Bolb", path: "/javaScript/blob" },
-            { title: "MIME类型", path: "/javaScript/MIME" },
-            { title: "树形结构模糊搜索", path: "/javaScript/fuzzySearch" },
+            { title: "Bolb", path: "/javascript/blob" },
+            { title: "MIME类型", path: "/javascript/MIME" },
+            { title: "树形结构模糊搜索", path: "/javascript/fuzzySearch" },
           ],
         },
       ],
