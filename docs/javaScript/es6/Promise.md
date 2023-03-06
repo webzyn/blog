@@ -431,7 +431,7 @@ p.then((res) => {
 })
 ```
 
-Promise.any()抛出的错误是一个 `AggregateError` 实例，这个 AggregateError 实例对象的`errors属性`是一个数组，包含了所有成员的错误。
+`Promise.any()`方法抛出的错误是一个 `AggregateError` 实例，这个 AggregateError 实例对象的`errors属性`是一个数组，包含了所有成员的错误。
 
 ```js
 let p1 = new Promise((resolve, reject) => {
@@ -451,7 +451,7 @@ p.then((res) => {
 })
 ```
 
-![](/javaScript/ES6/Promise_1.png)
+![](/javaScript/es6/Promise_1.png)
 
 ## 静态方法 - 返回新的 Promise 对象
 
