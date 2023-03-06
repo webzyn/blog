@@ -74,7 +74,7 @@ module.exports = {
             },
             {
               title: "四种for循环",
-              path: "/javaScript/es6/for",
+              path: "/javaScript/basis/for",
             },
             {
               title: "new关键字",
@@ -87,8 +87,24 @@ module.exports = {
           collapsable: false, //是否能收起来
           children: [
             {
+              title: "Symbol",
+              path: "/javaScript/es6/Symbol",
+            },
+            {
+              title: "set和map",
+              path: "/javaScript/es6/set_map",
+            },
+            {
+              title: "set、array、map和object区别",
+              path: "/javaScript/es6/set_array_map_object",
+            },
+            {
+              title: "Promise对象",
+              path: "/javaScript/es6/Promise",
+            },
+            {
               title: "四种for循环",
-              path: "/javaScript/es6/for",
+              path: "/javaScript/basis/for",
             },
           ],
         },
