@@ -103,9 +103,17 @@ module.exports = {
               path: "/javascript/es6/Promise",
             },
             {
-              title: "四种for循环",
-              path: "/javascript/basis/for",
+              title: "Iterator遍历器",
+              path: "/javascript/es6/Iterator",
             },
+            {
+              title: "for...of循环",
+              path: "/javascript/es6/for...of",
+            },
+            // {
+            //   title: "四种for循环",
+            //   path: "/javascript/basis/for",
+            // },
           ],
         },
         {
