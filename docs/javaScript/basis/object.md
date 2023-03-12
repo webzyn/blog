@@ -301,34 +301,39 @@ console.log(Object.getPrototypeOf(p1)) // {money: 100, say: ƒ}
 
 console.log(Object.getPrototypeOf(p1) === pro) // true
 ```
+
 ### Object.setPrototypeOf() 为对象设置原型对象
+
 > Object.setPrototypeOf(obj,proto)
+
 - 描述: 为现有对象设置原型，返回一个新对象
 - 参数:
   - obj: 现有对象
   - proto: 原型对象
 - 返回值: 新对象
+
 ```js
 // 创建一个没有原型的对象
-let obj = Object.create(null,{
-  name:{
-    value:"张三",
-  }
+let obj = Object.create(null, {
+  name: {
+    value: "张三",
+  },
 })
 console.log(obj) // { name: "张三" }
 
 // 给对象设置原型对象
-let obj1 = Object.setPrototypeOf(obj,{
-    addredd:"天津",
-    say:function(){
-        console.log("^_^")
-    }
+let obj1 = Object.setPrototypeOf(obj, {
+  addredd: "天津",
+  say: function () {
+    console.log("^_^")
+  },
 })
-console.log(obj1) 
+console.log(obj1)
 // { name: "张三",[[Prototype]]:{ addredd: "天津",say: f (), [[Prototype]]: Object } } => 末尾的 [[Prototype]]: Object参考原型链
 console.log(obj) // { name: "张三",[[Prototype]]:{ addredd: "天津",say: f (), [[Prototype]]: Object } } => 末尾的 [[Prototype]]: Object参考原型链
 console.log(obj1 === obj) // true
 ```
+
 ## Object 自身相关的方法
 
 ### Object.assign() 合并对象--浅拷贝
@@ -401,12 +406,16 @@ console.log(map) //Map(2) {"name" => "jonas", "age" => 18}
 > Object.fromEntries(arr)
 
 ```js
-let arr = [["a", 1],["b", 2]]
+let arr = [
+  ["a", 1],
+  ["b", 2],
+]
 let obj = Object.fromEntries(arr) // { a: 1, b: 2 }
 ```
 
-### * Object.create() 创建新对象
-**谷歌73以上版本才支持**
+### \* Object.create() 创建新对象
+
+**谷歌 73 以上版本才支持**
 
 > Object.create(proto,propertiesObject)
 
@@ -664,80 +673,95 @@ Object.isFrozen(obj) // true
 ```
 
 ### ES13 Object.hasOwn()
-- 作用: 用于解决原型上的hasOwnProperty方法的缺陷,用于替换Object.prototype.hasOwnProperty.call
+
+- 作用: 用于解决原型上的 hasOwnProperty 方法的缺陷,用于替换 Object.prototype.hasOwnProperty.call
+
 ```js
 let obj = {
-  name:"张三",
-  hasOwnProperty:"哈哈",
-  hasOwn:function(){
+  name: "张三",
+  hasOwnProperty: "哈哈",
+  hasOwn: function () {
     console.log("我是hasOwn")
-  }
+  },
 }
-console.log(Object.hasOwn(obj,'name')) // true => 这是Object内置对象的方法
+console.log(Object.hasOwn(obj, "name")) // true => 这是Object内置对象的方法
 obj.hasOwn() // 我是hasOwn => 这是实例对象的方法
 ```
+
 [hasOwn](https://ost.51cto.com/posts/10066)
 [hasOwn](https://zhuanlan.zhihu.com/p/385865696)
 
-## Object原型上的方法(Object.prototype)
+## Object 原型上的方法(Object.prototype)
+
 ### constructor 返回创建实例的构造函数
+
 ```js
 let obj = {}
 obj.constructor === Object // true
 obj.__proto__.constructor === Object // true
 Object.prototype.constructor === Object // true
 
-function Person(name,age){
-  this.name = name;
-  this.age = age;
+function Person(name, age) {
+  this.name = name
+  this.age = age
   this.say = () => {
-    console.log('我是',this.name)
+    console.log("我是", this.name)
   }
 }
-let p1 = new Person('张三',20)
+let p1 = new Person("张三", 20)
 console.log(p1.constructor) // ƒ Person(name,age){ ... } 返回构造函数Person
 ```
 
 ### hasOwnProperty() 判断属性值是否在对象上
+
 > obj.hasOwnProperty(attr)
+
 - 参数
   - obj: 指定对象
   - attr: 指定属性
 - 返回值: 布尔值
+
 ```js
 let obj = { a: 1, b: 2 }
-obj.hasOwnProperty('a') // true
-obj.hasOwnProperty('c') // false
+obj.hasOwnProperty("a") // true
+obj.hasOwnProperty("c") // false
 
-let obj = Object.create({ c: 3},{
-  a:{
-      value:1
-  },
-  b:{
-      value:2
+let obj = Object.create(
+  { c: 3 },
+  {
+    a: {
+      value: 1,
+    },
+    b: {
+      value: 2,
+    },
   }
-})
-console.log(obj.hasOwnProperty('c')) // false
+)
+console.log(obj.hasOwnProperty("c")) // false
 ```
-![](/javascript/basis/obj_1.png)
 
-- 缺陷: 如果对象有一个自己的属性hasOwnProperty,则无法访问原型上的hasOwnProperty方法
+<img :src="$withBase('/javascript/basis/obj_1.png')">
+
+- 缺陷: 如果对象有一个自己的属性 hasOwnProperty,则无法访问原型上的 hasOwnProperty 方法
 - 解决方法
   - Object.prototype.hasOwnProperty.call
   - hasOwn
+
 ```js
 let obj = {
-  name:"张三",
-  hasOwnProperty:"哈哈"
+  name: "张三",
+  hasOwnProperty: "哈哈",
 }
 // {name: '张三', hasOwnProperty: '哈哈'}
-obj.hasOwnProperty('name') // 报错 => Uncaught TypeError: obj.hasOwnProperty is not a function
-Object.prototype.hasOwnProperty.call(obj,'name') // true
+obj.hasOwnProperty("name") // 报错 => Uncaught TypeError: obj.hasOwnProperty is not a function
+Object.prototype.hasOwnProperty.call(obj, "name") // true
 ```
 
 ### isPrototypeOf() 判断一个对象是够在另一个对象的原型链上
+
 > obj1.isPrototypeOf(obj2)
-- 描述: 判断obj1是否在obj2的原型上
+
+- 描述: 判断 obj1 是否在 obj2 的原型上
 
 ```js
 let proto = Object.prototype // Object的原型对象
@@ -750,6 +774,7 @@ o.isPrototypeOf(obj) // true
 ```
 
 ### toString() 返回对象的字符串形式
+
 ```js
 let obj = {}
 obj.toString() // "[object, object]"
@@ -759,25 +784,27 @@ Object.prototype.toString.call([]) // '[object Array]'
 ### valueOf() 返回对象本身
 
 ### propertyIsEnumerable() 判断属性是否是该对象本身的可枚举属性
+
 > obj.propertyIsEnumerable(prop)
+
 ```js
-let obj = { a: 1,b : 2 }
-Object.defineProperty(obj,'b',{
-    enumerable:false
+let obj = { a: 1, b: 2 }
+Object.defineProperty(obj, "b", {
+  enumerable: false,
 })
-obj.propertyIsEnumerable('a') // true
-obj.propertyIsEnumerable('b') // false
+obj.propertyIsEnumerable("a") // true
+obj.propertyIsEnumerable("b") // false
 ```
 
 ## 其他
 
 ### Object.create()与 new Object()区别
 
-
 [前往=>](/javaScript/basis/object.html#object-create-创建新对象)
 
 ### new 关键字
-[new关键字=>](/javaScript/basis/new.html)
+
+[new 关键字=>](/javaScript/basis/new.html)
 
 ---
 

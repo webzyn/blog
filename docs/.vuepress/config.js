@@ -42,6 +42,10 @@ module.exports = {
         text: "面试",
         link: "/interview/",
       },
+      // {
+      //   text: "题",
+      //   link: "/algorithmic/",
+      // },
     ],
     // 侧边栏
     // sidebar: "auto",
@@ -109,6 +113,10 @@ module.exports = {
             {
               title: "for...of循环",
               path: "/javascript/es6/for...of",
+            },
+            {
+              title: "Generator函数",
+              path: "/javascript/es6/Generator",
             },
             // {
             //   title: "四种for循环",
@@ -281,6 +289,11 @@ module.exports = {
           path: "/mysql/mysql",
         },
       ],
+      // "/algorithmic/": [
+      //   {
+      //     title: "题",
+      //   },
+      // ],
     },
   },
   markdown: {

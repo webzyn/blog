@@ -21,8 +21,10 @@
 
 每一次调用 next 方法，都会返回数据结构的`当前成员的信息`。具体来说，就是返回一个包含 value 和 done 两个属性的对象。其中，value 属性是当前成员的值，done 属性是一个布尔值，表示遍历是否结束
 
+- 以下是一个遍历器生成函数
+
 ```js
-// 遍历器生成函数
+// 遍历器生成函数 return的返回值是一个遍历器对象
 function iterator() {
   var index = 0
   return {
@@ -106,7 +108,7 @@ for (let i of obj) {
 } // aa bb
 ```
 
-## 调用 Iterator 接口的场合
+## 调用 Iterator 接口的场合(for...of、解构赋值、扩展运算符、yield、数组作为参数等)
 
 有一些场合会默认调用 Iterator 接口（即 Symbol.iterator 方法）
 
