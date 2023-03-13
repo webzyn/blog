@@ -118,6 +118,10 @@ module.exports = {
               title: "Generator函数",
               path: "/javascript/es6/Generator",
             },
+            {
+              title: "async函数",
+              path: "/javascript/es6/async_await",
+            },
             // {
             //   title: "四种for循环",
             //   path: "/javascript/basis/for",
