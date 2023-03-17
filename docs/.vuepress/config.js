@@ -122,6 +122,10 @@ module.exports = {
               title: "async函数",
               path: "/javascript/es6/async_await",
             },
+            {
+              title: "Proxy",
+              path: "/javascript/es6/Proxy",
+            },
             // {
             //   title: "四种for循环",
             //   path: "/javascript/basis/for",
