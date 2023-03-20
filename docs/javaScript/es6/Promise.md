@@ -451,7 +451,7 @@ p.then((res) => {
 })
 ```
 
-![](/javaScript/es6/Promise_1.png)
+<img :src="$withBase('/javaScript/es6/Promise_1.png')">
 
 ## 静态方法 - 返回新的 Promise 对象
 

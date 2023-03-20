@@ -54,6 +54,73 @@ console.log(p.proxy.foo) // Uncaught TypeError: Cannot perform 'get' on a proxy 
 
 ## handle 对象上 的方法(13 种)
 
+### apply() 拦截函数的调用、call 和 apply 操作
+
+- `apply` 方法`拦截函数的调用`、`call` 和 `apply` 操作
+
+> apply (target, ctx, args)
+
+- 参数
+  - target: `目标对象(函数)`
+  - ctx: 目标对象的`上下文对象`(this)
+  - args: 目标对象的`参数数组`
+- 返回值
+  - 返回任意值
+- 拦截以下操作
+  - `proxy(...args)`
+  - `Function.prototype.apply()` 和 `Function.prototype.call()`
+  - `Reflect.apply()`
+- 约束
+  - target 必须是一个函数对象
+- 注意：`Proxy 实例`作为`函数调用`时，会被 `apply()`方法拦截
+
+```js
+var target = function () {
+  return "I am the target"
+}
+var handle = {
+  apply: function () {
+    return "I am the proxy"
+  },
+}
+var p = new Proxy(target, handle)
+p() // "I am the proxy"
+```
+
+### construct() 拦截 new 命令
+
+- construct()方法用于拦截 new 命令
+
+> construct (target, args, newTarget)
+
+```js
+const handle = {
+  construct(target, args, newTarget) {
+    return new target(...args)
+  },
+}
+```
+
+- 参数:
+  - target: `目标对象`(必须是函数)
+  - args: 构造函数的`参数数组`
+  - newTarget(可选): 创造实例对象时，new 命令作用的构造函数
+- 返回值
+  - construct()方法返回的必须是一个`对象`
+- 拦截以下操作
+  - `new proxy(...args)`
+  - `Reflect.construct()`
+
+```js
+const P = new Proxy(function () {}, {
+  construct(target, args) {
+    return { value: args[0] * 10 }
+  },
+})
+let o = new P(1)
+console.log(o) // {value: 10}
+```
+
 ### get() 拦截某个属性的读取操作
 
 - get 方法用于拦截对象某个属性的读取操作
@@ -63,7 +130,7 @@ console.log(p.proxy.foo) // Uncaught TypeError: Cannot perform 'get' on a proxy 
 - 参数
   - target: `目标对象`
   - propKey: `属性名`
-  - receiver(可选): `Proxy` 或者`继承 Proxy 的对象`
+  - receiver(可选): `Proxy实例` 或者`继承 Proxy 的对象`
 - 返回值
 
   - 任意值
@@ -234,37 +301,48 @@ proxy.foo = "foo"
 console.log(proxy.foo) // "bar"
 ```
 
-### apply() 拦截函数的调用、call 和 apply 操作
+### deleteProperty() 拦截 delete 操作
 
-- `apply` 方法`拦截函数的调用`、`call` 和 `apply` 操作
+- `deleteProperty` 方法用于拦截 `delete` 操作，如果这个方法`抛出错误`或者返回 `false`，当前属性就无法被 delete 命令删除
 
-> apply (target, ctx, args)
+> deleteProperty(target, propKey)
 
 - 参数
-  - target: `目标对象(函数)`
-  - ctx: 目标对象的`上下文对象`(this)
-  - args: 目标对象的`参数数组`
+
+  - target: `目标对象`
+  - propKey: 待删除的`属性名`
+
 - 返回值
-  - 返回任意值
+  - 必须返回一个 Boolean 类型的值，表示了该属性是否被成功删除。
 - 拦截以下操作
-  - `proxy(...args)`
-  - `Function.prototype.apply()` 和 `Function.prototype.call()`
-  - `Reflect.apply()`
+  - 删除属性：`delete proxy[foo]` 和 `delete proxy.foo`
+  - `Reflect.deleteProperty()`
 - 约束
-  - target 必须是一个函数对象
-- 注意：`Proxy 实例`作为`函数调用`时，会被 `apply()`方法拦截
+  - 目标对象自身的`不可配置`（configurable）的属性，不能被 deleteProperty 方法删除
 
 ```js
-var target = function () {
-  return "I am the target"
+function invariant(key, action) {
+  if (key[0] === "_") {
+    throw new Error(`${action}私有${key}属性的尝试无效`)
+  }
 }
-var handle = {
-  apply: function () {
-    return "I am the proxy"
+let handle = {
+  deleteProperty(target, key) {
+    invariant(key, "删除")
+    delete target[key]
+    return true
   },
 }
-var p = new Proxy(target, handle)
-p() // "I am the proxy"
+let target = {
+  _prop: "_prop",
+  prop: "prop",
+}
+let proxy = new Proxy(target, handle)
+delete proxy._prop // Uncaught Error: 删除私有_prop属性的尝试无效
+delete proxy.prop // true
+
+console.log(proxy) // Proxy(Object) {_prop: '_prop'}
+console.log(target) // {_prop: '_prop'}
 ```
 
 ### has() 拦截 in 操作符
@@ -323,84 +401,6 @@ let p = new Proxy(obj, {
 })
 
 "a" in p // Uncaught TypeError: 'has' on proxy: trap returned falsish for property 'a' but the proxy target is not extensible
-```
-
-### construct() 拦截 new 命令
-
-- construct()方法用于拦截 new 命令
-
-> construct (target, args, newTarget)
-
-```js
-const handle = {
-  construct(target, args, newTarget) {
-    return new target(...args)
-  },
-}
-```
-
-- 参数:
-  - target: `目标对象`(必须是函数)
-  - args: 构造函数的`参数数组`
-  - newTarget(可选): 创造实例对象时，new 命令作用的构造函数
-- 返回值
-  - construct()方法返回的必须是一个`对象`
-- 拦截以下操作
-  - `new proxy(...args)`
-  - `Reflect.construct()`
-
-```js
-const P = new Proxy(function () {}, {
-  construct(target, args) {
-    return { value: args[0] * 10 }
-  },
-})
-let o = new P(1)
-console.log(o) // {value: 10}
-```
-
-### deleteProperty() 拦截 delete 操作
-
-- `deleteProperty` 方法用于拦截 `delete` 操作，如果这个方法`抛出错误`或者返回 `false`，当前属性就无法被 delete 命令删除
-
-> deleteProperty(target, propKey)
-
-- 参数
-
-  - target: `目标对象`
-  - propKey: 待删除的`属性名`
-
-- 返回值
-  - 必须返回一个 Boolean 类型的值，表示了该属性是否被成功删除。
-- 拦截以下操作
-  - 删除属性：`delete proxy[foo]` 和 `delete proxy.foo`
-  - `Reflect.deleteProperty()`
-- 约束
-  - 目标对象自身的`不可配置`（configurable）的属性，不能被 deleteProperty 方法删除
-
-```js
-function invariant(key, action) {
-  if (key[0] === "_") {
-    throw new Error(`${action}私有${key}属性的尝试无效`)
-  }
-}
-let handle = {
-  deleteProperty(target, key) {
-    invariant(key, "删除")
-    delete target[key]
-    return true
-  },
-}
-let target = {
-  _prop: "_prop",
-  prop: "prop",
-}
-let proxy = new Proxy(target, handle)
-delete proxy._prop // Uncaught Error: 删除私有_prop属性的尝试无效
-delete proxy.prop // true
-
-console.log(proxy) // Proxy(Object) {_prop: '_prop'}
-console.log(target) // {_prop: '_prop'}
 ```
 
 ### defineProperty() 拦截 Object.defineProperty()操作

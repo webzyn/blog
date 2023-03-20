@@ -126,6 +126,10 @@ module.exports = {
               title: "Proxy",
               path: "/javascript/es6/Proxy",
             },
+            {
+              title: "Reflect",
+              path: "/javascript/es6/Reflect",
+            },
             // {
             //   title: "四种for循环",
             //   path: "/javascript/basis/for",
