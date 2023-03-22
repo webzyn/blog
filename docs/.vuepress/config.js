@@ -84,6 +84,14 @@ module.exports = {
               title: "new关键字",
               path: "/javascript/basis/new",
             },
+            {
+              title: "构造函数",
+              path: "/javascript/basis/构造函数",
+            },
+            // {
+            //   title: "构造函数继承",
+            //   path: "/javascript/basis/构造函数继承",
+            // },
           ],
         },
         {
@@ -130,6 +138,10 @@ module.exports = {
               title: "Reflect",
               path: "/javascript/es6/Reflect",
             },
+            // {
+            //   title: "Class",
+            //   path: "/javascript/es6/Class",
+            // },
             // {
             //   title: "四种for循环",
             //   path: "/javascript/basis/for",

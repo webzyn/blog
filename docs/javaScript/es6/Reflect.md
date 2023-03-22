@@ -497,3 +497,6 @@ person.age = 22
 // 张三
 // 22
 ```
+
+[阮一峰](https://es6.ruanyifeng.com/#docs/reflect)
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
