@@ -160,6 +160,24 @@ module.exports = {
       ],
       "/vue/": [
         {
+          title: "基础",
+          collapsable: false,
+          children: [
+            {
+              title: "指令",
+              path: "/vue/basis/directive",
+            },
+            {
+              title: "watch和$watch",
+              path: "/vue/basis/watch",
+            },
+            {
+              title: "set和delete",
+              path: "/vue/basis/set_delete",
+            },
+          ],
+        },
+        {
           title: "组件相关",
           collapsable: false, //是否能收起来,
           children: [
