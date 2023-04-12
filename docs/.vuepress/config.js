@@ -205,11 +205,15 @@ module.exports = {
           children: [
             {
               title: "Vuex",
-              path: "/vue/vuex",
+              path: "/vue/tool/vuex",
             },
             {
               title: "vue-router",
-              path: "/vue/vueRouter",
+              path: "/vue/tool/vueRouter",
+            },
+            {
+              title: "路由原理",
+              path: "/vue/tool/router",
             },
           ],
         },
