@@ -23,6 +23,10 @@ module.exports = {
         link: "/echarts/",
       },
       {
+        text: "axios",
+        link: "/axios/",
+      },
+      {
         text: "uniapp",
         link: "/uniapp/",
       },
@@ -269,6 +273,13 @@ module.exports = {
             },
           ],
         },
+      ],
+      "/axios/": [
+        { title: "axios", path: "/axios/" },
+        { title: "axios实例", path: "/axios/instance" },
+        { title: "config配置项", path: "/axios/config" },
+        { title: "axios拦截器", path: "/axios/interceptors" },
+        { title: "axios封装", path: "/axios/axios封装" },
       ],
       "/nodejs/": [
         {
