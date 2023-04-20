@@ -15,6 +15,10 @@ module.exports = {
         link: "/javascript/",
       },
       {
+        text: "css",
+        link: "/css/"
+      },
+      {
         text: "Vue",
         link: "/vue/",
       },
@@ -39,7 +43,7 @@ module.exports = {
         link: "/mysql/mysql",
       },
       {
-        text: "markDown语法",
+        text: "markDown",
         link: "/markDown/",
       },
       {
@@ -162,6 +166,7 @@ module.exports = {
           ],
         },
       ],
+      "/css/":"auto",
       "/vue/": [
         {
           title: "基础",
