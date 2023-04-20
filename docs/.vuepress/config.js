@@ -280,6 +280,7 @@ module.exports = {
         { title: "config配置项", path: "/axios/config" },
         { title: "axios拦截器", path: "/axios/interceptors" },
         { title: "axios封装", path: "/axios/axios封装" },
+        { title: "文件导出", path: "/axios/file" },
       ],
       "/nodejs/": [
         {
