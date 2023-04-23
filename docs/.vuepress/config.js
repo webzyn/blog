@@ -16,7 +16,7 @@ module.exports = {
       },
       {
         text: "css",
-        link: "/css/"
+        link: "/css/",
       },
       {
         text: "Vue",
@@ -166,7 +166,7 @@ module.exports = {
           ],
         },
       ],
-      "/css/":"auto",
+      "/css/": "auto",
       "/vue/": [
         {
           title: "基础",
@@ -205,6 +205,20 @@ module.exports = {
             {
               title: ".sync父子组件间数据双向绑定",
               path: "/vue/components/sync",
+            },
+          ],
+        },
+        {
+          title: "内置组件",
+          collapsable: false,
+          children: [
+            {
+              title: "component",
+              path: "/vue/builtIn/comp",
+            },
+            {
+              title: "keep-alive",
+              path: "/vue/builtIn/keep-alive",
             },
           ],
         },
