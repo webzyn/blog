@@ -42,7 +42,7 @@
 
 **子组件**
 
-<img :src="$withBase('/vue/components/10.png')">
+<img :src="$withBase('/vue/components/slot_8.png')">
 
 **渲染结果**
 
