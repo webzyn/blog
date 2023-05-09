@@ -23,6 +23,10 @@ module.exports = {
         link: "/vue/",
       },
       {
+        text: "Vue3",
+        link: "/vue3/",
+      },
+      {
         text: "echarts",
         link: "/echarts/",
       },
@@ -241,6 +245,16 @@ module.exports = {
           ],
         },
         {
+          title: "原理",
+          collapsable: false,
+          children: [
+            {
+              title: "原理",
+              path: "/vue/theory/",
+            },
+          ],
+        },
+        {
           title: "其他",
           collapsable: false, //是否能收起来,
           children: [
@@ -258,6 +272,10 @@ module.exports = {
             },
           ],
         },
+      ],
+      "/vue3/": [
+        { title: "vue3", path: "/vue3/" },
+        { title: "常用 Composition API", path: "/vue3/composition" },
       ],
       "/echarts/": [
         { title: "echarts使用", path: "/echarts/" },
