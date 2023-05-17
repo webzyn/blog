@@ -276,6 +276,9 @@ module.exports = {
       "/vue3/": [
         { title: "vue3", path: "/vue3/" },
         { title: "常用 Composition API", path: "/vue3/composition" },
+        { title: "其他 Composition API", path: "/vue3/otherComposition" },
+        { title: "新的组件", path: "/vue3/component" },
+        { title: "其他", path: "/vue3/other" },
       ],
       "/echarts/": [
         { title: "echarts使用", path: "/echarts/" },

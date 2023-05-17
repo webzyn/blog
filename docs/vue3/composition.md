@@ -250,9 +250,7 @@ export default {
       })
       ```
 
-## 7.计算属性与监视
-
-### 1.computed 函数
+## 7.计算属性computed
 
 - 与 Vue2.x 中 computed 配置功能一致
 
@@ -311,8 +309,7 @@ export default {
 }
 </script>
 ```
-
-### 2.watch 函数
+## 8.监视watch函数
 
 - 与 Vue2.x 中 watch 配置功能一致
 
@@ -566,7 +563,7 @@ export default {
 
 <img :src="$withBase('/vue3/10.png')">
 
-### 3.watchEffect 函数
+## 9.监视watchEffect函数
 
 - watch 的套路是：既要指明监视的属性，也要指明监视的回调。
 
@@ -615,3 +612,159 @@ export default {
 }
 </script>
 ```
+## 10.生命周期
+
+ -|vue2|vue3选项式|vue3组合式
+-|-|-|-
+渲染阶段|
+-|beforeCreate|beforeCreate|setup
+-|created|created|setup
+-|beforeMount|beforeMount|onBeforeMount
+-|mounted|mounted|onMounted
+更新阶段|
+-|beforeUpdete|beforeUpdate|onBeforeUpdate
+-|updated|updated|onUpdated
+销毁阶段|
+-|beforeDestroy|beforeUnmount|onBeforeUnmount
+-|destroyed|unmounted|onUnmounted
+
+**组合式+选项式**
+- 渲染阶段
+    - setup(组)  -->  beforeCreate(选)  -->  created(选)  ->  onBeforeMount(组)  -->  beforeMount(选)  -->  onMounted(组)  -->  mounted(选)
+- 更新阶段
+    - onBeforeUpdate(组)  -->  beforeUpdate(选)  -->  onUpdated(组)  -->  updated(选)
+- 销毁阶段
+    - onBeforeUnmount(组)  -->  beforeUnmount(选)  -->  onUnmounted(组)  -->  unmounted(选)
+
+## 11.自定义hook函数
+- 什么是hook?----本质是一个函数， 把setup函数中使用的Composition API进行了封装。
+- 类似于vue2.x中的mixin。
+- 自定义hook的优势:复用代码，让setup中的逻辑更清楚易懂。
+
+```js
+// usePoint.js  --> hook 函数
+import { reactive , onMounted, onBeforeUnmount } from "vue"
+export default function(){
+    // 数据
+    let point = reactive({
+        x: 0,
+        y:0
+    })
+
+    // 方法
+    function savePonit(event){
+        point.x = event.pageX
+        point.y = event.pageY
+        // console.log(event.pageX,event.pageY);
+    }
+
+    // 生命周期钩子
+    onMounted(()=>{
+        window.addEventListener("click",savePonit)
+    })
+
+    onBeforeUnmount(()=>{
+        window.removeEventListener('click',savePonit)
+    })
+
+    return { point }
+}
+```
+```vue
+<script>
+// 页面使用
+import usePoint from "./hooks/usePonit"
+export default{
+  setup(){
+    let { point } = usePoint()
+    return { point }
+  }
+}
+</script>
+```
+
+## 12.toRef
+
+- 作用: 创建一个 ref 对象，其value值指向另一个对象中的某个属性。
+- 语法: `const name = toRef(person, 'name')`
+- 应用: 要将响应式对象中的某个属性单独提供给外部使用时。
+- 扩展: `toRefs` 与 `toRef` 功能一致, 但可以批量创建多个ref对象，语法: `toRefs (person)`
+
+
+```vue
+<template>
+  <h2>person: {{ person }}</h2>
+  <h2>姓名: {{name2}}</h2>
+  <h2>年龄: {{age}}</h2>
+  <h2>薪水: {{salary}}</h2>
+</template>
+
+<script>
+import { reactive, toRef} from "vue"
+export default{
+  name:"Demo",
+  setup(){
+    let person = reactive({
+      name:"张三",
+      age: 18,
+      job:{
+        j1:{
+          salary: 20
+        }
+      }
+    })
+
+    console.log('name1',person.name); // name1 张三  ==> 这里相当于字符串'张三',没有响应式
+
+    let name2 = toRef(person,'name')
+    // 相当于从person响应式对象中取值
+    console.log('name2',name2); // name2 ObjectRefImpl {_object: Proxy(Object), _key: 'name', _defaultValue: undefined, __v_isRef: true}
+
+    return{ 
+      person, 
+      name2,
+      age: toRef(person,'age'),
+      salary: toRef(person.job.j1,'salary').
+    }
+  }
+}
+</script>
+```
+<img :src="$withBase('/vue3/11.png')">
+
+## 13.toRefs
+- 创建多个 ref 对象
+
+```vue
+<template>
+  <h2>姓名: {{name}}</h2>
+  <h2>年龄: {{age}}</h2>
+  <h2>薪水: {{job.j1.salary}}</h2>
+</template>
+
+<script>
+import { reactive, toRefs} from "vue"
+export default{
+  name:"Demo",
+  setup(){
+    let person = reactive({
+      name:"张三",
+      age: 18,
+      job:{
+        j1:{
+          salary: 20
+        }
+      }
+    })
+
+    console.log(toRefs(person)); // 是一个对象
+
+    return{ 
+      // 数据解构出来
+      ...toRefs(person)
+    }
+  }
+}
+</script>
+```
+<img :src="$withBase('/vue3/12.png')">
