@@ -22,7 +22,7 @@ const routes = [
     name: "foo",
     component: () => import("@/components/foo.vue"),
   },
-];
+]
 ```
 
 **跳转方式**
@@ -86,7 +86,7 @@ export default {
       // 对路由变化作出响应...
     },
   },
-};
+}
 </script>
 ```
 
@@ -98,9 +98,9 @@ export default {
   // 参数to 和 from 与watch参数一致
   beforeRouteUpdate(to, from, next) {
     // 对路由变化作出响应...
-    next();
+    next()
   },
-};
+}
 </script>
 ```
 
@@ -112,20 +112,20 @@ export default {
 
 ```js
 // 字符串
-router.push("home");
+router.push("home")
 
 // 对象
-router.push({ path: "home" });
+router.push({ path: "home" })
 
 // 命名的路由
-router.push({ name: "user", params: { userId: "123" } });
+router.push({ name: "user", params: { userId: "123" } })
 
 // 带查询参数，变成 /register?plan=private
-router.push({ path: "register", query: { plan: "private" } });
+router.push({ path: "register", query: { plan: "private" } })
 
 // 错误传参方式
 // params 会被忽略 在register页面params为{}
-router.push({ path: "register", params: { plan: "private" } });
+router.push({ path: "register", params: { plan: "private" } })
 ```
 
 ### 3.2 router.replace
@@ -139,13 +139,13 @@ router.push({ path: "register", params: { plan: "private" } });
 
 ```js
 // 在浏览器记录中前进一步，等同于 history.forward()
-router.go(1);
+router.go(1)
 
 // 后退一步记录，等同于 history.back()
-router.go(-1);
+router.go(-1)
 
 // 前进 3 步记录
-router.go(3);
+router.go(3)
 ```
 
 ## 4、重定向和别名
@@ -166,7 +166,7 @@ const router = new VueRouter({
       },
     },
   ],
-});
+})
 ```
 
 ### 别名
@@ -174,10 +174,18 @@ const router = new VueRouter({
 ```js
 const router = new VueRouter({
   routes: [{ path: "/a", component: A, alias: "/b" }],
-});
+})
 ```
 
 ## 5、路由组件传参
+
+- params 方法传参的时候，要在路由后面加参数名占位；并且传参的时候，参数名要跟路由后面设置的参数名对应。
+  - /user/:uname 这个路由匹配/user/wade, /user/james 这里的 uname 叫 params
+- query 方法，就没有这种限制，直接在跳转里面用就可以。
+  - /user?uname=wade /user?uname=james 这里的 uname 叫 query
+
+[params 传参](https://www.bilibili.com/read/cv19566129/)
+[两种传参](https://www.cnblogs.com/ssjd/p/14505513.html)
 
 - 1.props 值为对象
 
@@ -210,7 +218,7 @@ export default {
   name: "Detail",
   // 接收组件传递来的数据
   props: ["id", "title"],
-};
+}
 </script>
 ```
 
@@ -250,7 +258,7 @@ export default {
   name: "register-a",
   // 组件内部使用props接收参数
   props: ["msg"],
-};
+}
 </script>
 ```
 
@@ -290,7 +298,7 @@ export default {
   name: "Detail",
   // 接收组件传递的参数
   props: ["id", "title", "a", "b"],
-};
+}
 </script>
 ```
 
@@ -341,8 +349,8 @@ router.beforeEach((to, from, next) => {
 ```js
 router.beforeResolve((to, from, next) => {
   // ...
-  next();
-});
+  next()
+})
 ```
 
 #### 6.1.3 afterEach 全局后置钩子
@@ -352,7 +360,7 @@ router.beforeResolve((to, from, next) => {
 ```js
 router.afterEach((to, from) => {
   // ...
-});
+})
 ```
 
 ### 6.2 路由独享守卫
@@ -368,7 +376,7 @@ const router = new VueRouter({
       },
     },
   ],
-});
+})
 ```
 
 ### 6.3 组件内守卫
@@ -395,7 +403,7 @@ export default {
     // 导航离开该组件的对应路由时调用
     // 可以访问组件实例 `this`
   },
-};
+}
 </script>
 ```
 

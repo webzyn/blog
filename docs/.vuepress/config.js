@@ -322,6 +322,25 @@ module.exports = {
         { title: "axios封装", path: "/axios/axios封装" },
         { title: "文件导出", path: "/axios/file" },
       ],
+      "/uniapp/": [
+        {
+          title: "wx",
+          children: [
+            { title: "wxml", path: "/uniapp/wx/wxml" },
+            { title: "全局配置与页面配置", path: "/uniapp/wx/globalOption" },
+            { title: "网络请求", path: "/uniapp/wx/request" },
+            { title: "页面导航", path: "/uniapp/wx/navigation" },
+            { title: "页面事件", path: "/uniapp/wx/pageEvent" },
+            { title: "生命周期", path: "/uniapp/wx/lifeCycle" },
+            { title: "wxs", path: "/uniapp/wx/wxs" },
+            { title: "自定义组件", path: "/uniapp/wx/components" },
+            { title: "API Promise化", path: "/uniapp/wx/apiPromise" },
+            { title: "全局数据共享", path: "/uniapp/wx/store" },
+            { title: "分包", path: "/uniapp/wx/subpackage" },
+            { title: "自定义tabbar", path: "/uniapp/wx/custom-tabbar" },
+          ],
+        },
+      ],
       "/nodejs/": [
         {
           title: "nodejs基础",
