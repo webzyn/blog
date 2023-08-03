@@ -1,47 +1,94 @@
-# Class(停)
+# Class 语法
 
 [[toc]]
 
 ## 什么是类
 
-- class 类是一种抽象的体现，用来表示具有相同特性的一类事物。
-
-- JavaScript 使用原型继承：每个对象都从其原型对象继承属性和方法。
-- `原型继承可以模仿经典类的继承`。ES6 引入 class 语法(`基于原型继承上的语法糖`)
+- `class`可以被看作一个语法糖，让对象原型的写法更加清晰、更像面向对象编程的语法。
 
 ```js
-// ES5 使用构造函数
-function Point(x, y) {
-  this.x = x
-  this.y = y
-}
-Point.prototype.toString = function () {
-  return `(${this.x},${this.y})`
-}
-let p = new Point(1, 2)
-
-p // Point {x: 1, y: 2}
-
-// ES6 使用 class
-class Point {
-  // constructor => 构造函数
-  constructor(x, y) {
-    this.x = x
-    this.y = y
+// --------------class---------------
+class PersonAsClass {
+  // 实例属性/方法：定义在构造函数内部的属性，使用绑定在this上面。只能实例去访问，构造函数访问不到
+  prop = "实例属性" // (方法2)
+  // 构造器 相当于ES5中的构造函数
+  constructor(name, age) {
+    // 实例属性
+    this.name = name // (方法1)
+    this.age = age
+    // 实例方法
+    this.sayAge = function () {
+      console.log("实例方法")
+    }
   }
-  toString() {
-    return `(${this.x},${this.y})`
+
+  // 原型属性/方法：定义在构造函数原型上的方法。实例可以访问到。构造函数可以通过prototype属性来访问
+  // 不可枚举(与ES5不同)
+  sayName() {
+    console.log(this.name)
+  }
+
+  // 静态属性/方法:定义在构造函数上的属性，只能由构造函数来进行调用
+  static P = "PersonAsClass上的属性(静态属性)"
+  static say() {
+    console.log("PersonAsClass上的方法")
+  }
+
+  // 私有属性/方法: 只能在内部调用
+  #weight = "50kg"
+  #sayWeight = function () {
+    console.log(this.#weight)
   }
 }
-let p = new Point(1, 2)
-p // Point {x: 1, y: 2}
 
-// 类的数据类型是函数
-typeof Point // 'function'
+// MDN: 原型的数据属性必须定义在类定义的外面
+PersonAsClass.prototype.height = "180cm"
 
-// 类本身指向构造函数
-Point === Point.prototype.constructor // true
+let a = new PersonAsClass("张三", 18)
+console.log(a, "class实例")
+
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+// -------------构造函数------------
+function PersonAsFunction(name, age) {
+  // 实例属性/方法：定义在构造函数内部的属性，使用绑定在this上面。只能实例去访问，构造函数访问不到
+  this.name = name
+  this.age = age
+  // 实例方法
+  this.sayAge = function () {
+    console.log("实例方法")
+  }
+  // 模拟私有属性/方法: 无法强约束
+  this._weight = "50kg"
+  this._sayWeight = function () {
+    console.log(this._weight)
+  }
+}
+
+// 原型属性/方法：定义在构造函数原型上的方法。实例可以访问到。构造函数可以通过prototype属性来访问
+// 可枚举
+PersonAsFunction.prototype.height = "180cm"
+PersonAsFunction.prototype.sayName = function () {
+  console.log(this.name)
+}
+
+// 静态属性/方法:定义在构造函数上的属性，只能由构造函数来进行调用
+PersonAsFunction.P = "PersonAsFunction上的属性(静态属性)"
+PersonAsFunction.say = function () {
+  console.log("PersonAsFunction上的方法(静态方法)")
+}
+
+let b = new PersonAsFunction("李四", 20)
+console.log(b, "构造函数实例")
 ```
+
+- class
+  <img :src="$withBase('/javaScript/es6/class_07.png')">
+  <img :src="$withBase('/javaScript/es6/class_05.png')">
+
+- 构造函数
+  <img :src="$withBase('/javaScript/es6/class_08.png')">
+  <img :src="$withBase('/javaScript/es6/class_06.png')">
 
 ## constructor() 方法
 
@@ -62,15 +109,6 @@ class Point {}
 class Point {
   constructor() {}
 }
-
-// 指定返回另一个对象
-class Foo {
-  constructor() {
-    return Object.create(null)
-  }
-}
-// constructor()函数返回一个全新的对象，导致实例对象不是Foo类的实例
-new Foo() instanceof Foo // false
 ```
 
 ## 类的实例
@@ -78,32 +116,188 @@ new Foo() instanceof Foo // false
 - 使用 `new` 命令，生成类的实例
 - 类的属性和方法，除非显式定义在其本身（即定义在 this 对象上），否则都是定义在原型上（即定义在 class 上）
 
-```js
-class Point {
-  constructor(x, y) {
-    this.x = x
-    this.y = y
+```js{2-6,10-12}
+// --------------class---------------
+class PersonAsClass {
+  constructor(name, age) {
+    this.name = name
   }
-  toString() {
-    return `(${this.x},${this.y})`
+}
+let a = new PersonAsClass("张三", 18)
+
+// -------------构造函数------------
+function PersonAsFunction(name, age) {
+  this.name = name
+}
+let b = new PersonAsFunction("李四", 20)
+```
+
+## 实例属性/方法
+
+- 定义在构造函数内部的属性，使用绑定在 this 上面。只能实例去访问，构造函数访问不到
+
+```js{3,5-10,16-21}
+// --------------class---------------
+class PersonAsClass {
+  prop = "实例属性" // (实例属性: 写法2)
+  constructor(name, age) {
+    this.name = name // (实例属性: 写法1)
+    this.age = age
+    // 实例方法
+    this.sayAge = function () {
+      console.log("实例方法")
+    }
   }
 }
 
-let p = new Point(1, 2)
-
-p.toString() // '(1,2)'
-
-p.hasOwnProperty("x") // true => 存在于 实例本身 上
-
-p.hasOwnProperty("toString") // false
-
-p.__proto__.hasOwnProperty("toString") // true
-p.__proto__.hasOwnProperty("constructor") // true
-// 相当于
-Object.getPrototypeOf(p).hasOwnProperty("toString") // true
+// -------------构造函数------------
+function PersonAsFunction(name, age) {
+  this.name = name
+  this.age = age
+  // 实例方法
+  this.sayAge = function () {
+    console.log("实例方法")
+  }
+}
 ```
 
-<img :src="$withBase('/javaScript/es6/class_1.png')">
+## 原型属性/方法
 
+- 定义在构造函数原型上的方法。实例可以访问到。构造函数可以通过 prototype 属性来访问
+
+```js{4-6,10,15-18}
+// --------------class---------------
+class PersonAsClass {
+  // 不可枚举(与ES5不同)
+  sayName() {
+    console.log(this.name)
+  }
+}
+// MDN: 原型的数据属性必须定义在类定义的外面
+// 可枚举
+PersonAsClass.prototype.height = "180cm"
+
+// -------------构造函数------------
+function PersonAsFunction() {}
+// 可枚举
+PersonAsFunction.prototype.height = "180cm"
+PersonAsFunction.prototype.sayName = function () {
+  console.log(this.name)
+}
+```
+
+## 静态属性/方法
+
+- 定义在构造函数上的属性，只能由构造函数来进行调用
+
+```js{3-6,11-14}
+// --------------class---------------
+class PersonAsClass {
+  static P = "PersonAsClass上的属性(静态属性)"
+  static say() {
+    console.log("PersonAsClass上的方法")
+  }
+}
+
+// -------------构造函数------------
+function PersonAsFunction() {}
+PersonAsFunction.P = "PersonAsFunction上的属性(静态属性)"
+PersonAsFunction.say = function () {
+  console.log("PersonAsFunction上的方法(静态方法)")
+}
+```
+
+## 私有属性/方法
+
+- 只能在内部调用
+
+```js{3-6,12-15}
+// --------------class---------------
+class PersonAsClass {
+  #weight = "50kg"
+  #sayWeight = function () {
+    console.log(this.#weight)
+  }
+}
+
+// -------------构造函数------------
+function PersonAsFunction(name, age) {
+  // 模拟私有属性/方法: 无法强约束
+  this._weight = "50kg"
+  this._sayWeight = function () {
+    console.log(this._weight)
+  }
+}
+```
+
+## 取值函数（getter）和存值函数（setter）
+
+- 与 ES5 一样，在“类”的内部可以使用`get`和`set`关键字，对某个属性设置存值函数和取值函数，拦截该属性的存取行为
+
+```js{5-10}
+class MyClass {
+  constructor() {
+    // ...
+  }
+  get prop() {
+    return "getter"
+  }
+  set prop(value) {
+    console.log("setter: " + value)
+  }
+}
+```
+
+## in 运算符
+
+- in 运算符判断某个对象是否有某个私有属性#xxx
+
+```js{2-5}
+class PersonAsClass {
+  #weight = "50kg"
+  test() {
+    console.log(#weight in this)
+  }
+  testX(){
+    console.log(#x in this) // 报错 私有属性没有声明，就直接用于in运算符的判断,导致报错。
+  }
+}
+let p = new PersonAsClass()
+p.test() // true
+```
+
+## 静态块
+
+- 在类的内部设置一个代码块，在类生成时运行且只运行一次
+- 主要作用是<span style="color:red">对静态属性进行初始化</span>。
+- 以后，新建类的实例时，这个块就不运行了。
+
+```js{5-10}
+function fn(x, y) {
+  return x + y
+}
+// 静态块的内部不能有return语句
+class PersonAsClass {
+  static r1
+  static r2
+  static {
+    // this 指当前类
+    this.r1 = fn(1, 2) // static r1 = 3
+    // PersonAsClass 当前类名
+    PersonAsClass.r2 = fn(10, 20) // static r2 = 30
+  }
+}
+```
+
+<img :src="$withBase('/javaScript/es6/class_09.png')">
+
+## name 属性
+
+```js
+class Point {}
+Point.name // "Point"
+```
+
+[阮一峰 ES6](https://es6.ruanyifeng.com/#docs/class)
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)
 [文章](https://juejin.cn/post/6844904041697263623)

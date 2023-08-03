@@ -27,6 +27,10 @@ module.exports = {
         link: "/vue3/",
       },
       {
+        text: "React",
+        link: "/React/",
+      },
+      {
         text: "echarts",
         link: "/echarts/",
       },
@@ -36,12 +40,16 @@ module.exports = {
       },
       {
         text: "uniapp",
-        link: "/uniapp/",
+        link: "/uniapp/wx/wxml",
       },
       {
         text: "nodejs",
         link: "/nodejs/fs",
       },
+      // {
+      //   text: "webpack",
+      //   link: "/webpack/",
+      // },
       {
         text: "MySQL",
         link: "/mysql/mysql",
@@ -49,6 +57,10 @@ module.exports = {
       {
         text: "markDown",
         link: "/markDown/",
+      },
+      {
+        text: "git",
+        link: "/git/",
       },
       {
         text: "面试",
@@ -63,6 +75,7 @@ module.exports = {
     // sidebar: "auto",
     sidebar: {
       "/markDown/": "auto",
+      "/git/": "auto",
       "/javascript/": [
         {
           title: "js",
@@ -150,10 +163,14 @@ module.exports = {
               title: "Reflect",
               path: "/javascript/es6/Reflect",
             },
-            // {
-            //   title: "Class",
-            //   path: "/javascript/es6/Class",
-            // },
+            {
+              title: "Class语法",
+              path: "/javascript/es6/Class",
+            },
+            {
+              title: "Class继承",
+              path: "/javascript/es6/Class继承",
+            },
             // {
             //   title: "四种for循环",
             //   path: "/javascript/basis/for",
@@ -279,6 +296,11 @@ module.exports = {
         { title: "其他 Composition API", path: "/vue3/otherComposition" },
         { title: "新的组件", path: "/vue3/component" },
         { title: "其他", path: "/vue3/other" },
+      ],
+      "/React/": [
+        { title: "React入门", path: "/React/" },
+        { title: "jsx语法", path: "/React/jsx" },
+        { title: "React组件", path: "/React/component" },
       ],
       "/echarts/": [
         { title: "echarts使用", path: "/echarts/" },
