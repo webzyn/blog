@@ -136,10 +136,16 @@ let b = new PersonAsFunction("李四", 20)
 
 - 定义在构造函数内部的属性，使用绑定在 this 上面。只能实例去访问，构造函数访问不到
 
-```js{3,5-10,16-21}
+```js{3-9,11-16,22-27}
 // --------------class---------------
 class PersonAsClass {
   prop = "实例属性" // (实例属性: 写法2)
+  sayToo = function () {  // (实例方法: 写法2)
+    console.log('实例方法')
+  }
+  sayToo2 = () => {  // (实例方法: 写法2)
+    console.log('实例方法')
+  }
   constructor(name, age) {
     this.name = name // (实例属性: 写法1)
     this.age = age

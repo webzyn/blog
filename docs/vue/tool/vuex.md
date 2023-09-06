@@ -9,32 +9,32 @@ yarn add vuex@3.4.0 || npm i vuex@3.4.0
 在 src 路径下创建 store 文件夹，然后创建 index.js 文件
 
 ```js
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from "vue"
+import Vuex from "vuex"
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {},
   getters: {},
   actions: {},
   mutations: {},
-});
+})
 
-export default store;
+export default store
 ```
 
 修改 main.js
 
 ```js
-import Vue from "vue";
-import App from "./App.vue";
-import store from "./store"; // 引入我们前面导出的store对象
+import Vue from "vue"
+import App from "./App.vue"
+import store from "./store" // 引入我们前面导出的store对象
 
 new Vue({
   store,
   render: (h) => h(App),
-}).$mount("#app");
+}).$mount("#app")
 ```
 
 ## 2、State 公共数据源
@@ -47,7 +47,7 @@ const store = new Vuex.Store({
   state: {
     count: 0,
   },
-});
+})
 ```
 
 **访问 state 中的数据**
@@ -59,13 +59,13 @@ const store = new Vuex.Store({
 export default {
   computed: {
     getCount() {
-      return this.$store.state.count;
+      return this.$store.state.count
     },
   },
   mounted() {
-    console.log(this.getCount);
+    console.log(this.getCount)
   },
-};
+}
 </script>
 ```
 
@@ -75,16 +75,16 @@ export default {
 
 ```vue
 <script>
-import { mapState } from "vuex"; // 从vuex中导入mapState
+import { mapState } from "vuex" // 从vuex中导入mapState
 export default {
   computed: {
     // 经过解构后，自动就添加到了计算属性中，此时就可以直接像访问计算属性一样访问它
     ...mapState(["count"]),
   },
   mounted() {
-    console.log(this.count);
+    console.log(this.count)
   },
-};
+}
 </script>
 ```
 
@@ -108,10 +108,10 @@ const store = new Vuex.Store({
   },
   getters: {
     showNumber(state) {
-      return "当前数量为" + state.count;
+      return "当前数量为" + state.count
     },
   },
-});
+})
 ```
 
 **使用 getters**
@@ -123,9 +123,9 @@ const store = new Vuex.Store({
 export default {
   mounted() {
     // 使用getters
-    console.log(this.$store.getters.showNumber);
+    console.log(this.$store.getters.showNumber)
   },
-};
+}
 </script>
 ```
 
@@ -133,15 +133,15 @@ export default {
 
 ```vue
 <script>
-import { mapGetters } from "vuex"; // 从vuex中导入mapState
+import { mapGetters } from "vuex" // 从vuex中导入mapState
 export default {
   computed: {
     ...mapState(["showNumber"]),
   },
   mounted() {
-    console.log(this.showNumber);
+    console.log(this.showNumber)
   },
-};
+}
 </script>
 ```
 
@@ -158,13 +158,13 @@ const store = new Vuex.Store({
   },
   mutations: {
     add(state) {
-      state.count++;
+      state.count++
     },
     sub(state, payload) {
-      state.count -= payload.step;
+      state.count -= payload.step
     },
   },
-});
+})
 ```
 
 **触发 mutations**
@@ -180,14 +180,14 @@ export default {
   methods: {
     handler1() {
       // 触发mutations
-      this.$store.commit("add");
+      this.$store.commit("add")
     },
     handler2() {
       // 可携带参数
-      this.$store.commit("sub", { step: 5 });
+      this.$store.commit("sub", { step: 5 })
     },
   },
-};
+}
 </script>
 ```
 
@@ -197,20 +197,20 @@ export default {
 
 ```vue
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations } from "vuex"
 export default {
   methods: {
     ...mapMutations(["add", "sub"]),
     handler1() {
-      this.add();
+      this.add()
       // this.$store.commit("add");
     },
     handler2() {
-      this.sub({ step: 5 });
+      this.sub({ step: 5 })
       // this.$store.commit("sub", { step: 5 });
     },
   },
-};
+}
 </script>
 ```
 
@@ -227,10 +227,10 @@ const store = new Vuex.Store({
   },
   mutations: {
     add(state) {
-      state.count++;
+      state.count++
     },
     sub(state, payload) {
-      state.count = state.count - payload.step;
+      state.count = state.count - payload.step
     },
   },
   // 定义Action
@@ -238,16 +238,16 @@ const store = new Vuex.Store({
     // context 在一定程度上等同于store
     addAsync(context) {
       setTimeout(() => {
-        context.commit("add");
-      }, 1000);
+        context.commit("add")
+      }, 1000)
     },
     subAsync(context, payload) {
       setTimeout(() => {
-        context.commit("sub", payload);
-      }, 1000);
+        context.commit("sub", payload)
+      }, 1000)
     },
   },
-});
+})
 ```
 
 **触发 actions**
@@ -262,13 +262,13 @@ const store = new Vuex.Store({
 export default {
   methods: {
     handler3() {
-      this.$store.dispatch("addAsync");
+      this.$store.dispatch("addAsync")
     },
     handler4() {
-      this.$store.dispatch("subAsync", { step: 5 });
+      this.$store.dispatch("subAsync", { step: 5 })
     },
   },
-};
+}
 </script>
 ```
 
@@ -278,20 +278,20 @@ export default {
 
 ```vue
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from "vuex"
 export default {
   methods: {
     ...mapActions(["addAsync", "subAsync"]),
     handler3() {
-      this.addAsync();
+      this.addAsync()
       // this.$store.dispatch("addAsync");
     },
     handler4() {
-      this.subAsync({ step: 5 });
+      this.subAsync({ step: 5 })
       // this.$store.dispatch("subAsync", { step: 5 });
     },
   },
-};
+}
 </script>
 ```
 
@@ -302,51 +302,51 @@ export default {
 
 ```js
 // index.js
-import Vue from "vue";
-import Vuex from "vuex";
-import state from "./state";
-import getters from "./getters";
-import mutations from "./mutations";
-import actions from "./actions";
+import Vue from "vue"
+import Vuex from "vuex"
+import state from "./state"
+import getters from "./getters"
+import mutations from "./mutations"
+import actions from "./actions"
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state,
   getters,
   mutations,
   actions,
-});
+})
 
-export default store;
+export default store
 ```
 
 ```js
 // state.js
 export default {
   count: 0,
-};
+}
 ```
 
 ```js
 // getters.js
 export default {
   showNumber(state) {
-    return "当前数量为" + state.count;
+    return "当前数量为" + state.count
   },
-};
+}
 ```
 
 ```js
 // mutations.js
 export default {
   add(state) {
-    state.count++;
+    state.count++
   },
   sub(state, payload) {
-    state.count = state.count - payload.step;
+    state.count = state.count - payload.step
   },
-};
+}
 ```
 
 ```js
@@ -354,13 +354,228 @@ export default {
 export default {
   addAsync(context) {
     setTimeout(() => {
-      context.commit("add");
-    }, 1000);
+      context.commit("add")
+    }, 1000)
   },
   subAsync(context, payload) {
     setTimeout(() => {
-      context.commit("sub", payload);
-    }, 1000);
+      context.commit("sub", payload)
+    }, 1000)
   },
-};
+}
+```
+
+## 7、按模块进行拆分
+
+- src/store/`index.js`
+
+```js
+import Vue from "vue"
+import Vuex from "vuex"
+
+import app from "./modules/app"
+import user from "./modules/user"
+import getters from "./getters"
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  modules: {
+    app,
+    user,
+  },
+  state: {},
+  mutations: {},
+  actions: {},
+  getters,
+})
+```
+
+- src/store/`mutation-types`
+
+```js
+// 存放常量
+export const TITLE = "TITLE"
+```
+
+- src/store/`modules/app.js`
+
+```js
+import Vue from "vue"
+import { TITLE } from "@/store/mutation-types"
+import { getAction } from "@/api/manage"
+
+const app = {
+  // namespaced: true, 使其成为带命名空间的模块。保证在变量名一样的时候，添加一个父级名拼接
+  // 数据源
+  state: {
+    title: "",
+  },
+  getters: {
+    test: () => "test",
+  },
+  // 同步
+  mutations: {
+    SET_TITLE(state, title) {
+      // 存放到本地
+      Vue.ls.set(TITLE, title)
+      state.title = title
+    },
+  },
+  // 异步
+  actions: {
+    setTitle({ commit }, payload) {
+      const defaultTitle = "CBTA教学资源平台"
+      return new Promise((resolve, reject) => {
+        getAction("/setting/settings/backendTitle")
+          .then((res) => {
+            if (res.success) {
+              const title = res.message
+              commit("SET_TITLE", title)
+              resolve(res)
+            } else {
+              commit("SET_TITLE", defaultTitle)
+              reject(res)
+            }
+          })
+          .catch((e) => {
+            commit("SET_TITLE", defaultTitle)
+            reject(e)
+          })
+      })
+    },
+  },
+}
+
+export default app
+```
+
+- src/store/`getters.js`
+
+```js
+import Vue from "vue"
+import { TITLE } from "@/store/mutation-types"
+
+const getters = {
+  title: (state) => {
+    // 从本地取出状态保存到state中
+    state.app.title = Vue.ls.get(TITLE)
+    return state.app.title
+  },
+}
+
+export default getters
+```
+
+- 使用 state
+
+```vue
+<script>
+// 不开启命名空间
+export default {
+  computed: {
+    ...mapState({
+      title: (state) => state.app.title,
+    }),
+  },
+  mounted() {
+    // 法2
+    console.log(this.$store.state.app.title)
+  },
+}
+
+// 开启命名空间
+export default {
+  computed: {
+    ...mapState("app", ["title"]),
+  }
+}
+</script>
+```
+
+- 使用 getters
+
+  - 挂载在全局的 getters
+    - `...mapGetters(['title'])`
+    - `this.$store.getters.title`
+  - 模块中的 getters
+
+    ```vue
+    <script>
+    // app.js模块不开启命名空间
+    export default {
+      computed: {
+        ...mapGetters(['test'])
+      },
+      mounted(){
+        console.log(this.$store.getters.test)
+      }
+    }
+
+    // app.js模块开启命名空间
+    export default {
+      computed: {
+        ...mapGetters(['app/test']),
+        ...mapGetters('app',['test'])
+      },
+      mounted(){
+        console.log(this['app/test'])
+        console.log(this.test)
+
+        console.log(this.$store.getters['app/test'])
+      }
+    }
+    </script>
+    ```
+
+- 使用 mutation
+
+```vue
+<script>
+// app.js模块不开启命名空间
+export default {
+  methods: {
+    ...mapMutations(['SET_TITLE'])
+  },
+  mounted(){
+    this.$store.commit('SET_TITLE')
+  }
+}
+
+// app.js模块开启命名空间
+export default {
+  methods: {
+    ...mapMutations('app', ['SET_TITLE'])
+  },
+  mounted(){
+    this.$store.commit('app/SET_TITLE')
+  }
+}
+</script>
+```
+
+- 使用 action
+
+```vue
+<script>
+// app.js模块不开启命名空间
+export default {
+  methods: {
+    ...mapActions(['setTitle'])
+  },
+  mounted(){
+    this.$store.dispacth('setTitle')
+  }
+}
+
+// app.js模块开启命名空间
+export default {
+  methods: {
+    ...mapActions('app',['setTitle'])
+  },
+  mounted(){
+    this.$store.dispacth('app/setTitle')
+  }
+}
+</script>
 ```

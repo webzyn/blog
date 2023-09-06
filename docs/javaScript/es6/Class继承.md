@@ -17,7 +17,7 @@ class Parent {
 
 class Son extends Parent {
   constructor(x, y, z) {
-    super(x, y, z)
+    super(x, y)
     this.z = z
   }
 }
