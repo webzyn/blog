@@ -8,18 +8,18 @@
 
 ```js
 // 注册一个全局自定义指令 `v-focus`
-Vue.directive("focus", {
+Vue.directive('focus', {
   // 该对象是指令定义对象
   // 以下一个钩子函数 当绑定元素插入到 DOM 中...
   inserted: function (el) {
-    el.focus();
-  },
-});
+    el.focus()
+  }
+})
 new Vue({
   router,
   store,
-  render: (h) => h(App),
-}).$mount("#app");
+  render: h => h(App)
+}).$mount('#app')
 ```
 
 _页面使用_
@@ -43,23 +43,23 @@ _页面使用_
 
 <script>
 export default {
-  name: "Content",
+  name: 'Content',
   directives: {
     focus: {
       // 指令的定义
       inserted: function (el) {
-        el.focus();
-      },
-    },
-  },
-};
+        el.focus()
+      }
+    }
+  }
+}
 </script>
 ```
 
 ## 钩子函数
 
 ```js
-Vue.directive("my-directive", {
+Vue.directive('my-directive', {
   bind: function (el, binding, vnode, oldVnode) {
     // 只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。
   },
@@ -76,18 +76,18 @@ Vue.directive("my-directive", {
   },
   unbind: function () {
     // 只调用一次，指令与元素解绑时调用。
-  },
-});
+  }
+})
 ```
 
 **钩子函数参数**
 
-![](/vue/directive/1.png)
+<img :src="$withBase('/vue/directive/1.png')">
 
 **参数的值如下**
 
-![](/vue/directive/2.png)
-![](/vue/directive/3.png)
+<img :src="$withBase('/vue/directive/2.png')">
+<img :src="$withBase('/vue/directive/3.png')">
 
 ### 动态 argument 参数
 
@@ -99,22 +99,22 @@ Vue.directive("my-directive", {
 ```
 
 ```js
-Vue.directive("pin", {
+Vue.directive('pin', {
   bind: function (el, binding, vnode) {
-    el.style.position = "fixed";
-    var s = binding.arg == "left" ? "left" : "top";
-    el.style[s] = binding.value + "px";
-  },
-});
+    el.style.position = 'fixed'
+    var s = binding.arg == 'left' ? 'left' : 'top'
+    el.style[s] = binding.value + 'px'
+  }
+})
 
 new Vue({
-  el: "#dynamicexample",
+  el: '#dynamicexample',
   data: function () {
     return {
-      direction: "left", // 自定义指令 参数 arg 值
-    };
-  },
-});
+      direction: 'left' // 自定义指令 参数 arg 值
+    }
+  }
+})
 ```
 
 ### 简写
@@ -122,9 +122,9 @@ new Vue({
 在 bind 和 update 时触发相同行为，而不关心其它的钩子。
 
 ```js
-Vue.directive("color-swatch", function (el, binding) {
+Vue.directive('color-swatch', function (el, binding) {
   // ...
-});
+})
 ```
 
 ### 对象字面量
@@ -138,10 +138,10 @@ Vue.directive("color-swatch", function (el, binding) {
 
 ```js
 // 注册时
-Vue.directive("demo", function (el, binding) {
-  console.log(binding.value.color); // => "white"
-  console.log(binding.value.text); // => "hello!"
-});
+Vue.directive('demo', function (el, binding) {
+  console.log(binding.value.color) // => "white"
+  console.log(binding.value.text) // => "hello!"
+})
 ```
 
 [参考官网](https://v2.cn.vuejs.org/v2/guide/custom-directive.html)
