@@ -32,7 +32,7 @@
     }
   }
 
-  ReactDOM.render(<MyComponent />, document.getElementById("test"))
+  ReactDOM.render(<MyComponent />, document.getElementById('test'))
 </script>
 ```
 
@@ -153,6 +153,29 @@ class Weather extends React.Component {
 }
 
 ReactDOM.render(<Weather />, document.getElementById("test"))
+```
+
+### 3.4 异步回调函数中使用
+
+- setState(fn)可以把`上次更新后的状态`拿来作为参数使用，所有 setState(fn)的状态更新不会合并
+
+```jsx{5-12}
+const Demo = () => {
+  const [countdown, setCountdown] = useState(60)
+  const test = () => {
+    const timer = setInterval(() => {
+      setCountdown(prevCountdown => {
+        if (prevCountdown > 1) {
+          return prevCountdown - 1
+        } else {
+          clearInterval(timer)
+          return 0
+        }
+      })
+    }, 1000)
+  }
+  return <span>00:{countdown >= 10 ? countdown : '0' + countdown}</span>
+}
 ```
 
 ## 4 组件实例核心属性 props
@@ -334,15 +357,15 @@ constructor(props) {
   Person.propTypes = {
     name: PropTypes.string.isRequired,
     sex: PropTypes.string,
-    age: PropTypes.number,
+    age: PropTypes.number
   }
 
   Person.defaultProps = {
-    sex: "男",
-    age: 18,
+    sex: '男',
+    age: 18
   }
 
-  ReactDOM.render(<Person name="jerry" />, document.getElementById("test"))
+  ReactDOM.render(<Person name='jerry' />, document.getElementById('test'))
 </script>
 ```
 
@@ -441,24 +464,24 @@ class Demo extends React.Component {
     this.setState({ isHot: !isHot })
   }
 
-  saveInput = (element) => {
+  saveInput = element => {
     this.input1 = element
-    console.log("绑定函数的方式", element)
+    console.log('绑定函数的方式', element)
   }
 
   render() {
     const { isHot } = this.state
     return (
       <div>
-        <h2>今天天气很{isHot ? "炎热" : "凉爽"}</h2>
+        <h2>今天天气很{isHot ? '炎热' : '凉爽'}</h2>
         <input
-          ref={(ele) => {
+          ref={ele => {
             this.input2 = ele
-            console.log("内联函数的方式", ele)
+            console.log('内联函数的方式', ele)
           }}
-          type="text"
+          type='text'
         />
-        <input ref={this.saveInput} type="text" />
+        <input ref={this.saveInput} type='text' />
         <button onClick={this.changeWeather}>切换天气</button>
       </div>
     )
@@ -510,14 +533,14 @@ class Demo extends React.Component {
 
 ```js
 class Demo extends React.Component {
-  showData2 = (event) => {
+  showData2 = event => {
     alert(event.target.value)
   }
 
   render() {
     return (
       <div>
-        <input onBlur={this.showData2} type="text" />
+        <input onBlur={this.showData2} type='text' />
       </div>
     )
   }
@@ -535,7 +558,7 @@ class Demo extends React.Component {
 
 ```js
 class Login extends React.Component {
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault() // 阻止表单默认提交
     const { username, password } = this
     alert(`用户名是：${username.value}, 密码是：${password.value}`)
@@ -544,17 +567,9 @@ class Login extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         用户名：
-        <input
-          ref={(element) => (this.username = element)}
-          type="text"
-          name="username"
-        />
+        <input ref={element => (this.username = element)} type='text' name='username' />
         密码：
-        <input
-          ref={(element) => (this.password = element)}
-          type="password"
-          name="password"
-        />
+        <input ref={element => (this.password = element)} type='password' name='password' />
         <button>登录</button>
       </form>
     )
@@ -567,16 +582,16 @@ class Login extends React.Component {
 ```js
 class Login extends React.Component {
   state = {
-    username: "",
-    password: "",
+    username: '',
+    password: ''
   }
-  saveUsername = (event) => {
+  saveUsername = event => {
     this.setState({ username: event.target.value })
   }
-  savePassword = (event) => {
+  savePassword = event => {
     this.setState({ password: event.target.value })
   }
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault() // 阻止表单默认提交
     const { username, password } = this.state
     alert(`用户名是：${username}, 密码是：${password}`)
@@ -585,13 +600,13 @@ class Login extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         用户名：
-        <input onChange={this.saveUsername} type="text" name="username" />
+        <input onChange={this.saveUsername} type='text' name='username' />
         {/*
           双向绑定
           <input value={this.state.username} onChange={this.saveUsername} type="text" name="username" />
         */}
         密码：
-        <input onChange={this.savePassword} type="password" name="password" />
+        <input onChange={this.savePassword} type='password' name='password' />
         <button>登录</button>
       </form>
     )
@@ -609,8 +624,8 @@ class Login extends React.Component {
 ```js
 // 函数柯里化
 function sum(a) {
-  return (b) => {
-    return (c) => {
+  return b => {
+    return c => {
       return a + b + c
     }
   }
