@@ -31,6 +31,10 @@ module.exports = {
         link: '/React/'
       },
       {
+        text:'webpack',
+        link:'/webpack/'
+      },
+      {
         text: 'echarts',
         link: '/echarts/'
       },
@@ -300,6 +304,10 @@ module.exports = {
             {
               title: '页面更新问题',
               path: '/vue/case/pageUpdate'
+            },
+            {
+              title: 'transition',
+              path: '/vue/case/transition'
             }
           ]
         }
@@ -326,6 +334,11 @@ module.exports = {
         { title: 'redux-toolkit', path: '/React/redux-toolkit.md' },
         { title: 'react+ts', path: '/React/react-ts.md' },
         { title: '其他', path: '/React/other.md' }
+      ],
+      '/webpack/': [
+        { title: '概念', path: '/webpack/' },
+        { title: '自定义react-webpack', path: '/webpack/my-react-webpack' },
+        { title: '自定义vue-webpack', path: '/webpack/my-vue-webpack' },
       ],
       '/echarts/': [
         { title: 'echarts使用', path: '/echarts/' },

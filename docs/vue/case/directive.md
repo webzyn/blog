@@ -61,6 +61,14 @@ const dragDialogWidth = {
       if (elUploadDom && elUploadDraggerDom) {
         elUploadDom.style.width = '100%'
         elUploadDraggerDom.style.width = '100%'
+
+        // 文件名换行
+        const fileNameNodes = el.querySelectorAll('.el-upload-list__item-name')
+        if (fileNameNodes.length > 0) {
+          fileNameNodes.forEach(node => {
+            node.style.whiteSpace = 'inherit'
+          })
+        }
       }
     })
   }
@@ -76,3 +84,8 @@ export default install
 import dragDialogWidth from '@/common/dragDialogWidth'
 Vue.use(dragDialogWidth)
 ```
+
+- 效果图
+
+<img :src="$withBase('/vue/case/1.png')">
+<img :src="$withBase('/vue/case/2.png')">

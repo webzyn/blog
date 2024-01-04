@@ -8,6 +8,7 @@
     "vuepress": "^1.9.7"
   },
   "scripts": {
+    "start": "yarn dev",
     "dev": "vuepress dev docs --temp .temp",
     "docs:build": "vuepress build docs"
   }
